@@ -1,0 +1,11 @@
+The Design is much better, modern and good for the eye.
+Here's a few notes to make it further better:
+1. the homepage gradient #67338E to #8E7C33 is not that good, you can try to make it a gradient from 67338e to 51306a, or to 7f4ba6, or to 800080, see which fits better, search in the internet for what is the best gradient for this primary color and apply it.
+2. The buttons are way better this way, but can improve the colors on hover, Button:"Login" in the navbar on hover the text is not changing color it's white with the button hover on white it's unreadable. Button:"About the Troop" on hover, change it to be the opposite of the normal, button-bg=white text-color= primary. Button:"Join Us" this is good, keep it untouched. Button:"Join Us" at the bottom of the homepage, button-bg=gold text-color=black is not the best combination change it to something better. Button:"Join" on the Units page button-bg=gold text-color=black/primary, it's dull not good and unreadable, change it. Button:"Contact" on units page is pretty good keep it that way. Button:"Send" in Contact page on hover changing the button-bg to gold is not the best make it change to white and the text-color change to the primary. Button:"Apply to Join" on the band page is the same as button "Join" in the Units page the same changes apply. Button:"Submit" in the join page is the same as button "Join" in the Units page the same changes apply. Button:"Reset" change it to be the same as button:"Join Us" in the home page at the top.
+3. Navbar:
+Make More open on hover, not open on press.
+The color of the links on hover is pretty good but the color when active is bad dull, change it to what you suggest keeping in the theme of the website.
+The EN/AR toggle is soo good, keep it untouched.
+4. About page: change the placeholder of emblem to logo-2.png, you can use it here
+5. Home page: section "Our Mission" the title of the section is on the left, the golden line under it is centerd, either put the title in the middle or the line under the text on the left, see which fits better.
+That's all for now.

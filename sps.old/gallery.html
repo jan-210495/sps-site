@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-default-lang="ar">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gallery – St. Ephrem Patriarchal Syriac Scouts – Damascus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="assets/images/logo-2.png">
+  <link rel="stylesheet" href="assets/css/style.css?v=20251117c">
+</head>
+<body data-page="gallery">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand fw-semibold d-flex align-items-center gap-2" href="index.html">
+        <img id="brandLogoImg" class="brand-logo" src="assets/images/logo-2.png" alt="Logo">
+        <span data-i18n="nav.brand">St. Ephrem Scouts</span>
+      </a>
+      <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon" style="filter: invert(1)"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="index.html" data-i18n="nav.home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html" data-i18n="nav.about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="units.html" data-i18n="nav.units">Units</a></li>
+          <li class="nav-item"><a class="nav-link" href="events.html" data-i18n="nav.events">Events</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html" data-i18n="nav.contact">Contact</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-i18n="nav.more">More</a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="band.html" data-i18n="nav.band">Band</a></li>
+              <li><a class="dropdown-item" href="gallery.html" data-i18n="nav.gallery">Gallery</a></li>
+              <li><a class="dropdown-item" href="news.html" data-i18n="nav.news">News</a></li>
+              <li><a class="dropdown-item" href="join.html" data-i18n="nav.join">Join Us</a></li>
+            </ul>
+          </li>
+        </ul>
+        <div class="d-flex align-items-center flex-wrap ms-lg-3 navbar-actions">
+          <button class="btn btn-theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">
+            <span class="icon sun" aria-hidden="true">☀</span>
+            <span class="icon moon" aria-hidden="true">🌙</span>
+          </button>
+          <div class="lang-toggle" role="group" aria-label="Language toggle">
+            <a class="lang-link" data-lang="ar" href="#">AR</a>
+            <a class="lang-link" data-lang="en" href="#">EN</a>
+          </div>
+          <a href="#" class="btn btn-outline-light btn-login" data-i18n="nav.login">Login</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+  <header class="py-5 bg-light-grey text-center">
+    <div class="container">
+      <h1 class="section-title" data-i18n="gallery.title">Gallery</h1>
+      <div class="gold-divider"></div>
+      <p class="lead-small" data-i18n="gallery.lead">Processions, camps, band, and meetings.</p>
+    </div>
+  </header>
+
+  <main class="py-5" data-gallery>
+    <div class="container">
+      <div class="d-flex flex-wrap gap-2 mb-4">
+        <button class="btn btn-sm btn-burgundy active" type="button" data-filter="all" data-i18n="gallery.all">All</button>
+        <button class="btn btn-sm btn-outline-secondary" type="button" data-filter="processions" data-i18n="gallery.processions">Processions</button>
+        <button class="btn btn-sm btn-outline-secondary" type="button" data-filter="camps" data-i18n="gallery.camps">Camps</button>
+        <button class="btn btn-sm btn-outline-secondary" type="button" data-filter="band" data-i18n="gallery.band">Band</button>
+        <button class="btn btn-sm btn-outline-secondary" type="button" data-filter="meetings" data-i18n="gallery.meetings">Meetings</button>
+      </div>
+
+      <div class="gallery-grid">
+        <img class="gallery-item" data-category="meetings" src="assets/images/all-scouts-59-anniversary.jpg" alt="Group photo for the 59th anniversary">
+        <img class="gallery-item" data-category="meetings" src="assets/images/woodbadge-ceremony-1.jpg" alt="Wood Badge ceremony moment">
+        <img class="gallery-item" data-category="meetings" src="assets/images/anniversary-58-ceremony.jpg" alt="58th anniversary celebration">
+        <img class="gallery-item" data-category="meetings" src="assets/images/anniversary-57-ceremony.jpg" alt="57th anniversary celebration">
+        <img class="gallery-item" data-category="camps" src="assets/images/rovers-rock-climbing-training-white-helmets.jpg" alt="Rovers learning rock climbing with White Helmets">
+        <img class="gallery-item" data-category="camps" src="assets/images/scouts-rovers-leaders-white-helmets-salute.jpg" alt="Scouts, rovers, leaders and White Helmets salute together">
+        <img class="gallery-item" data-category="meetings" src="assets/images/rovers-becoming-leaders-salute.jpg" alt="Rovers becoming leaders and saluting">
+        <img class="gallery-item" data-category="camps" src="assets/images/scouts-morning-routine-summer-camp.jpg" alt="Scouts morning routine at camp">
+        <img class="gallery-item" data-category="camps" src="assets/images/rovers-morning-routine-summer-camp.jpg" alt="Rovers morning routine at camp">
+        <img class="gallery-item" data-category="camps" src="assets/images/cubs-learning-from-white-helmets.jpg" alt="Cubs learning from White Helmets">
+        <img class="gallery-item" data-category="camps" src="assets/images/white-helmets-overseeing-cubs-tents.jpg" alt="White Helmets overseeing cubs pitching tents">
+        <img class="gallery-item" data-category="camps" src="assets/images/white-helmets-teaching-cubs-rappelling.jpg" alt="White Helmets teaching cubs to rappel">
+        <img class="gallery-item" data-category="camps" src="assets/images/morning-prayer-with-priest-camp-1.jpg" alt="Morning prayer with priest at camp">
+        <img class="gallery-item" data-category="camps" src="assets/images/morning-prayer-with-priest-camp-2.jpg" alt="Morning prayer at camp">
+        <img class="gallery-item" data-category="camps" src="assets/images/rovers-learning-fire-safety-white-helmets.jpg" alt="Rovers learning fire safety techniques">
+        <img class="gallery-item" data-category="camps" src="assets/images/rovers-learning-fire-extinguish-white-helmets.jpg" alt="Rovers practicing fire extinguishing">
+        <img class="gallery-item" data-category="camps" src="assets/images/campfire-gathering-night.jpg" alt="Night campfire gathering">
+        <img class="gallery-item" data-category="camps" src="assets/images/campsite-flags-display.jpg" alt="Flags displayed at campsite">
+        <img class="gallery-item" data-category="camps" src="assets/images/scouts-learning-hiking-gear.jpg" alt="Scouts learning about hiking gear">
+        <img class="gallery-item" data-category="camps" src="assets/images/pioneering-flag-structure.jpg" alt="Pioneering flag structure">
+        <img class="gallery-item" data-category="meetings" src="assets/images/visit-from-saydet-al-beshara-scouts.jpg" alt="Visit from Saydet Al Beshara scouts">
+        <img class="gallery-item" data-category="meetings" src="assets/images/beavers-activity-group.jpg" alt="Beavers group activity">
+        <img class="gallery-item" data-category="camps" src="assets/images/beavers-horse-activity.jpg" alt="Beavers horse activity">
+        <img class="gallery-item" data-category="processions" src="assets/images/morning-prayer-with-patriarch-ignatius.jpg" alt="Morning prayer with Patriarch Ignatius">
+        <img class="gallery-item" data-category="meetings" src="assets/images/cubs-home-cinema-activity-1.jpg" alt="Cubs home cinema activity">
+        <img class="gallery-item" data-category="meetings" src="assets/images/cubs-home-cinema-activity-2.jpg" alt="Cubs home cinema activity follow-up">
+        <img class="gallery-item" data-category="meetings" src="assets/images/rovers-circle-discussions.jpg" alt="Rovers circle discussions">
+        <img class="gallery-item" data-category="processions" src="assets/images/emblem-easter-sunday-procession.jpg" alt="Emblem carried on Easter Sunday">
+        <img class="gallery-item" data-category="processions" src="assets/images/scouts-easter-sunday-procession.jpg" alt="Scouts in Easter Sunday procession">
+        <img class="gallery-item" data-category="band" src="assets/images/brass-band-easter-sunday.jpg" alt="Brass band playing on Easter Sunday">
+        <img class="gallery-item" data-category="band" src="assets/images/percussion-band-easter-sunday.jpg" alt="Percussion band on Easter Sunday">
+        <img class="gallery-item" data-category="processions" src="assets/images/scouts-marching-good-friday.jpg" alt="Scouts marching on Good Friday">
+        <img class="gallery-item" data-category="processions" src="assets/images/scouts-marching-to-pioneer-work-good-friday.jpg" alt="Scouts marching to pioneer work on Good Friday">
+        <img class="gallery-item" data-category="processions" src="assets/images/jesus-artwork-good-friday.jpg" alt="Good Friday artwork of Jesus">
+        <img class="gallery-item" data-category="processions" src="assets/images/cubs-marching-good-friday.jpg" alt="Cubs marching on Good Friday">
+        <img class="gallery-item" data-category="processions" src="assets/images/cross-pioneer-work-good-friday.jpg" alt="Cross pioneer work on Good Friday">
+        <img class="gallery-item" data-category="processions" src="assets/images/pioneer-work-display.jpg" alt="Pioneer work display">
+        <img class="gallery-item" data-category="processions" src="assets/images/peace-fire-display-drone-good-friday.jpg" alt="Peace fire display from drone on Good Friday">
+        <img class="gallery-item" data-category="processions" src="assets/images/fireworks-pioneer-work-good-friday.jpg" alt="Fireworks over pioneer work">
+        <img class="gallery-item" data-category="processions" src="assets/images/crowd-with-candles-good-friday.jpg" alt="Crowd with candles on Good Friday">
+        <img class="gallery-item" data-category="processions" src="assets/images/patriarch-ignatius-lighting-fire-good-friday.jpg" alt="Patriarch Ignatius lighting fire on Good Friday">
+        <img class="gallery-item" data-category="processions" src="assets/images/patriarch-ignatius-address-good-friday.jpg" alt="Patriarch Ignatius addressing crowd on Good Friday">
+        <img class="gallery-item" data-category="processions" src="assets/images/fire-show-good-friday-1.jpg" alt="Fire show by leaders and rovers">
+        <img class="gallery-item" data-category="processions" src="assets/images/fire-show-good-friday-2.jpg" alt="Fire show display at night">
+        <img class="gallery-item" data-category="camps" src="assets/images/rover-leader-training-camp-group.jpg" alt="Rover-leader training camp group">
+        <img class="gallery-item" data-category="camps" src="assets/images/rover-leader-training-camp-morning.jpg" alt="Morning routine at rover-leader training camp">
+      </div>
+    </div>
+  </main>
+
+  <footer class="pt-5 pb-4 mt-4">
+    <div class="container">
+      <div class="row g-3 align-items-center">
+        <div class="col-lg-6">
+          <p class="mb-1" data-i18n="footer.name">St. Ephrem Patriarchal Syriac Scouts – Damascus</p>
+          <small class="text-secondary">© <span id="year"></span> St. Ephrem Scouts. All rights reserved.</small>
+        </div>
+        <div class="col-lg-6 d-flex gap-3 justify-content-lg-end justify-content-start">
+          <a class="social-icon" href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm0 2a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zM18 6.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg></a>
+          <a class="social-icon" href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 22v-8h3l1-4h-4V8a1 1 0 0 1 1-1h3V3h-3a5 5 0 0 0-5 5v2H6v4h3v8h4z"/></svg></a>
+          <a class="social-icon" href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 7.5a3 3 0 0 0-2.1-2.1C18.9 5 12 5 12 5s-6.9 0-8.9.4A3 3 0 0 0 1 7.5 31 31 0 0 0 1 12a31 31 0 0 0 0 4.5 3 3 0 0 0 2.1 2.1C5.1 19 12 19 12 19s6.9 0 8.9-.4A3 3 0 0 0 23 16.5 31 31 0 0 0 23 12a31 31 0 0 0 0-4.5zM10 15v-6l6 3-6 3z"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js?v=20251117c"></script>
+</body>
+</html>

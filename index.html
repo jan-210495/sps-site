@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl" data-default-lang="ar">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,46 +8,71 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" type="image/png" href="assets/images/logo-2.png">
+  <link rel="stylesheet" href="assets/css/style.css?v=20251117c">
+  <script>(function(){const doc=document.documentElement;const lang=doc.getAttribute('data-default-lang')||'ar';doc.lang=lang;doc.dir=lang==='ar'?'rtl':'ltr';doc.classList.add('i18n-pending');})();</script>
 </head>
 <body data-page="home">
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand fw-semibold" href="index.html" data-i18n="nav.brand">St. Ephrem Scouts</a>
+      <a class="navbar-brand fw-semibold d-flex align-items-center gap-2" href="index.html">
+        <img id="brandLogoImg" class="brand-logo" src="assets/images/logo-2.png" alt="Logo">
+        <span data-i18n="nav.brand">St. Ephrem Scouts</span>
+      </a>
       <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon" style="filter: invert(1)"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
           <li class="nav-item"><a class="nav-link" href="index.html" data-i18n="nav.home">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="about.html" data-i18n="nav.about">About</a></li>
           <li class="nav-item"><a class="nav-link" href="units.html" data-i18n="nav.units">Units</a></li>
-          <li class="nav-item"><a class="nav-link" href="band.html" data-i18n="nav.band">Band</a></li>
           <li class="nav-item"><a class="nav-link" href="events.html" data-i18n="nav.events">Events</a></li>
-          <li class="nav-item"><a class="nav-link" href="gallery.html" data-i18n="nav.gallery">Gallery</a></li>
-          <li class="nav-item"><a class="nav-link" href="news.html" data-i18n="nav.news">News</a></li>
-          <li class="nav-item"><a class="nav-link" href="join.html" data-i18n="nav.join">Join Us</a></li>
           <li class="nav-item"><a class="nav-link" href="contact.html" data-i18n="nav.contact">Contact</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-i18n="nav.more">More</a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="band.html" data-i18n="nav.band">Band</a></li>
+              <li><a class="dropdown-item" href="gallery.html" data-i18n="nav.gallery">Gallery</a></li>
+              <li><a class="dropdown-item" href="news.html" data-i18n="nav.news">News</a></li>
+              <li><a class="dropdown-item" href="join.html" data-i18n="nav.join">Join Us</a></li>
+            </ul>
+          </li>
         </ul>
-        <div class="d-flex align-items-center ms-lg-3 gap-1">
-          <button class="btn btn-sm btn-light" data-lang="en" type="button">EN</button>
-          <button class="btn btn-sm btn-outline-light" data-lang="ar" type="button">AR</button>
+        <div class="d-flex align-items-center flex-wrap ms-lg-3 navbar-actions">
+          <button class="btn btn-theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">
+            <span class="icon sun" aria-hidden="true">☀</span>
+            <span class="icon moon" aria-hidden="true">🌙</span>
+          </button>
+          <div class="lang-toggle" role="group" aria-label="Language toggle">
+            <a class="lang-link" data-lang="ar" href="#">AR</a>
+            <a class="lang-link" data-lang="en" href="#">EN</a>
+          </div>
+          <a href="#" class="btn btn-outline-light btn-login" data-i18n="nav.login">Login</a>
         </div>
       </div>
     </div>
   </nav>
+
 
   <!-- Hero -->
   <header class="hero">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-10">
+          <div class="mb-3">
+            <img id="heroLogoImg" class="brand-logo-hero" src="assets/images/logo-2.png" alt="Troop logo">
+          </div>
           <h1 class="display-5 fw-bold" data-i18n="home.hero.title">St. Ephrem Patriarchal Syriac Scouts – Damascus</h1>
           <p class="lead mt-3" data-i18n="home.hero.subtitle">Faith, Service, and Brotherhood in the Heart of Damascus</p>
           <div class="mt-4 d-flex gap-3 justify-content-center">
             <a href="about.html" class="btn btn-primary btn-lg" data-i18n="home.hero.about">About the Troop</a>
             <a href="join.html" class="btn btn-outline-light btn-lg" data-i18n="home.hero.join">Join Us</a>
+          </div>
+          <div class="scroll-cue">
+            <span data-i18n="home.hero.scroll">Learn more</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16.5 4.5 9l1.4-1.4L12 13.2l6.1-5.6L19.5 9z"/></svg>
           </div>
         </div>
       </div>
@@ -70,8 +95,10 @@
     <div class="container">
       <div class="row align-items-center g-4">
         <div class="col-lg-6">
-          <h2 class="section-title" data-i18n="home.mission.title">Our Mission</h2>
-          <div class="gold-divider"></div>
+          <div class="section-heading">
+            <h2 class="section-title mb-1" data-i18n="home.mission.title">Our Mission</h2>
+            <div class="gold-divider mb-3"></div>
+          </div>
           <ul class="mb-0">
             <li data-i18n="home.mission.li1">Grow in faith, prayer, and Christian values.</li>
             <li data-i18n="home.mission.li2">Live the scouting spirit: leadership, teamwork, and responsibility.</li>
@@ -80,7 +107,7 @@
           </ul>
         </div>
         <div class="col-lg-6">
-          <img alt="Troop" class="img-fluid rounded" src="assets/images/placeholder-1.svg">
+          <img alt="Troop salute with White Helmets" class="img-fluid rounded" src="assets/images/scouts-rovers-leaders-white-helmets-salute.jpg">
         </div>
       </div>
     </div>
@@ -96,7 +123,17 @@
       <div class="row g-4">
         <div class="col-md-6 col-lg-4">
           <div class="card h-100">
-            <img src="assets/images/placeholder-2.svg" class="card-img-top" alt="Cubs">
+            <img src="assets/images/beavers-horse-activity.jpg" class="card-img-top" alt="Beavers horse activity">
+            <div class="card-body">
+              <h5 class="card-title" data-i18n="home.units.beavers.title">Beavers</h5>
+              <p class="card-text" data-i18n="home.units.beavers.text">Our youngest section building curiosity, teamwork, and care through play.</p>
+              <a href="units.html" class="stretched-link" data-i18n="home.learnmore">Learn more</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100">
+            <img src="assets/images/cubs-home-cinema-activity-1.jpg" class="card-img-top" alt="Cubs movie night activity">
             <div class="card-body">
               <h5 class="card-title" data-i18n="home.units.cubs.title">Cubs</h5>
               <p class="card-text" data-i18n="home.units.cubs.text">Youngest adventurers learning teamwork and faith through games and discovery.</p>
@@ -106,7 +143,7 @@
         </div>
         <div class="col-md-6 col-lg-4">
           <div class="card h-100">
-            <img src="assets/images/placeholder-3.svg" class="card-img-top" alt="Scouts">
+            <img src="assets/images/scouts-learning-hiking-gear.jpg" class="card-img-top" alt="Scouts learning hiking gear">
             <div class="card-body">
               <h5 class="card-title" data-i18n="home.units.scouts.title">Scouts</h5>
               <p class="card-text" data-i18n="home.units.scouts.text">Outdoor skills, service, and personal growth with strong friendships.</p>
@@ -116,7 +153,7 @@
         </div>
         <div class="col-md-6 col-lg-4">
           <div class="card h-100">
-            <img src="assets/images/placeholder-4.svg" class="card-img-top" alt="Guides">
+            <img src="assets/images/campfire-gathering-night.jpg" class="card-img-top" alt="Guides around campfire">
             <div class="card-body">
               <h5 class="card-title" data-i18n="home.units.guides.title">Guides</h5>
               <p class="card-text" data-i18n="home.units.guides.text">Sisterhood, leadership, creativity, and service to parish and city.</p>
@@ -126,7 +163,7 @@
         </div>
         <div class="col-md-6 col-lg-4">
           <div class="card h-100">
-            <img src="assets/images/placeholder-6.svg" class="card-img-top" alt="Rovers">
+            <img src="assets/images/rovers-rock-climbing-training-white-helmets.jpg" class="card-img-top" alt="Rovers rock climbing training">
             <div class="card-body">
               <h5 class="card-title" data-i18n="home.units.rovers.title">Rovers</h5>
               <p class="card-text" data-i18n="home.units.rovers.text">Young adults leading projects, mentorship, and impactful service.</p>
@@ -136,7 +173,7 @@
         </div>
         <div class="col-md-6 col-lg-4">
           <div class="card h-100">
-            <img src="assets/images/placeholder-4.svg" class="card-img-top" alt="Band">
+            <img src="assets/images/brass-band-easter-sunday.jpg" class="card-img-top" alt="Brass band playing">
             <div class="card-body">
               <h5 class="card-title" data-i18n="home.units.band.title">Band</h5>
               <p class="card-text" data-i18n="home.units.band.text">Trumpets, drums, and cymbals bringing joy to feasts and processions.</p>
@@ -158,7 +195,7 @@
       <div class="row g-4">
         <div class="col-md-6 col-lg-4">
           <div class="card h-100">
-            <img src="assets/images/placeholder-5.svg" class="card-img-top" alt="Event 1">
+            <img src="assets/images/scouts-marching-good-friday.jpg" class="card-img-top" alt="Procession march">
             <div class="card-body">
               <h5 class="card-title" data-i18n="home.events.e1.title">Community Service Day</h5>
               <p class="text-muted mb-1">Dec 10, 2025 – Old Damascus</p>
@@ -169,7 +206,7 @@
         </div>
         <div class="col-md-6 col-lg-4">
           <div class="card h-100">
-            <img src="assets/images/placeholder-5.svg" class="card-img-top" alt="Event 2">
+            <img src="assets/images/patriarch-ignatius-lighting-fire-good-friday.jpg" class="card-img-top" alt="Patriarch lighting ceremonial fire">
             <div class="card-body">
               <h5 class="card-title" data-i18n="home.events.e2.title">Advent Prayer Night</h5>
               <p class="text-muted mb-1">Dec 18, 2025 – Parish Hall</p>
@@ -180,7 +217,7 @@
         </div>
         <div class="col-md-6 col-lg-4">
           <div class="card h-100">
-            <img src="assets/images/placeholder-5.svg" class="card-img-top" alt="Event 3">
+            <img src="assets/images/percussion-band-easter-sunday.jpg" class="card-img-top" alt="Percussion band at Easter">
             <div class="card-body">
               <h5 class="card-title" data-i18n="home.events.e3.title">Band Rehearsal Open Day</h5>
               <p class="text-muted mb-1">Jan 7, 2026 – Music Room</p>
@@ -201,12 +238,12 @@
         <a href="gallery.html" data-i18n="home.gallery.viewall">View all</a>
       </div>
       <div class="gallery-grid">
-        <img src="assets/images/placeholder-1.svg" alt="Gallery 1">
-        <img src="assets/images/placeholder-2.svg" alt="Gallery 2">
-        <img src="assets/images/placeholder-3.svg" alt="Gallery 3">
-        <img src="assets/images/placeholder-4.svg" alt="Gallery 4">
-        <img src="assets/images/placeholder-5.svg" alt="Gallery 5">
-        <img src="assets/images/placeholder-6.svg" alt="Gallery 6">
+        <img src="assets/images/peace-fire-display-drone-good-friday.jpg" alt="Peace word in fire from drone">
+        <img src="assets/images/cubs-learning-from-white-helmets.jpg" alt="Cubs learning with White Helmets">
+        <img src="assets/images/rovers-learning-fire-extinguish-white-helmets.jpg" alt="Rovers learning fire response">
+        <img src="assets/images/visit-from-saydet-al-beshara-scouts.jpg" alt="Visit from Saydet Al Beshara scouts">
+        <img src="assets/images/pioneering-flag-structure.jpg" alt="Pioneering flag structure">
+        <img src="assets/images/scouts-easter-sunday-procession.jpg" alt="Easter Sunday procession">
       </div>
     </div>
   </section>
@@ -247,6 +284,6 @@
 
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/main.js?v=20251117c"></script>
 </body>
 </html>

@@ -1,0 +1,15 @@
+Navbar, hover over the link must not be like the active style, they must be different.
+The gold color of the navbar elements/links is not the best thing, so it must be changed to something better.
+There is too much navbar elements, it must be reduced and the other backed into a dropdown list, make them 5 visible no more.
+The dark-mode toggle remove the text and make it a sun and mood for light and dark, and it's not necessary. 
+The Arabic font must be changed it's too bad, change it temporary until you get the font-family files.
+Colors: primary: #67338E, Complementary Accent: #8E7C33 (A muted yellow/gold), Neutrals: #FFFFFF (White) and #000000 (Black) or shades of gray for balance. .
+	Accessibility and Usage Tips
+	Contrast is Key: When using color combinations, ensure sufficient contrast between text and background for 	readability, especially for web design. Tools are available to test color palettes for accessibility 	standards.The 60-30-10 Rule: For a balanced design, consider using your primary color for 60% of the 	space, a secondary color for 30%, and an accent color for the remaining 10%.
+Login button is too small, must be bigger and better.
+The navbar must be fixed when scrolling, still.
+The buttons text must be bold for all buttons. 
+Change the design for the EN/AR toggle there is so much better designs.
+About-Us sections must be better, it's too dull.
+The units cards can be placed differently.
+The photo in the band page is too big can be smaller
