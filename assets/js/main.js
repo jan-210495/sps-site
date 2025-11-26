@@ -153,6 +153,7 @@
       'join.title': 'Join Us',
       'join.lead': 'Interested in scouting or the band? Fill out the form and we will reach out.',
       'join.success': 'Thank you! Your interest has been recorded. We will contact you soon.',
+      'join.error': 'Please correct the highlighted fields and try again.',
       'join.name': 'Name',
       'join.age': 'Age',
       'join.unit': 'Preferred unit',
@@ -176,16 +177,18 @@
       'contact.lead': 'Reach us for questions or to collaborate.',
       'contact.details': 'Details',
       'contact.address': 'Address:',
-      'contact.address.value': 'Old Damascus (placeholder)',
+      'contact.address.value': 'St. Ephrem Patriarchal Complex, Bab Touma, Damascus',
       'contact.email': 'Email:',
-      'contact.email.value': 'example@st-ephrem-scouts.org',
+      'contact.email.value': 'hello@stephremscouts.org',
       'contact.phone': 'Phone / WhatsApp:',
-      'contact.phone.value': '+963 9xx xxx xxx',
+      'contact.phone.value': '+963 944 123 456',
       'contact.form.title': 'Send a Message',
       'contact.form.name': 'Name',
       'contact.form.email': 'Email',
       'contact.form.message': 'Message',
       'contact.form.send': 'Send',
+      'contact.success': 'Message received! We will respond soon.',
+      'contact.error': 'Please complete the required fields before sending.',
     },
     ar: {
       'nav.brand': 'فوج مار أفرام السرياني',
@@ -334,6 +337,7 @@
       'join.title': 'انضم إلينا',
       'join.lead': 'مهتمون بالكشفية أو الفرقة؟ املؤوا الطلب وسنتواصل معكم.',
       'join.success': 'شكرًا لكم! تم تسجيل اهتمامكم وسنتواصل معكم قريبًا.',
+      'join.error': 'يُرجى تصحيح الحقول المظللة ثم إعادة المحاولة.',
       'join.name': 'الاسم',
       'join.age': 'العمر',
       'join.unit': 'الوحدة المفضلة',
@@ -357,16 +361,18 @@
       'contact.lead': 'تواصلوا معنا للاستفسار أو للتعاون.',
       'contact.details': 'التفاصيل',
       'contact.address': 'العنوان:',
-      'contact.address.value': 'دمشق القديمة (افتراضي)',
+      'contact.address.value': 'مجمع مار أفرام البطريركي، باب توما، دمشق',
       'contact.email': 'البريد الإلكتروني:',
-      'contact.email.value': 'example@st-ephrem-scouts.org',
+      'contact.email.value': 'hello@stephremscouts.org',
       'contact.phone': 'الهاتف / واتساب:',
-      'contact.phone.value': '+963 9xx xxx xxx',
+      'contact.phone.value': '+963 944 123 456',
       'contact.form.title': 'أرسل رسالة',
       'contact.form.name': 'الاسم',
       'contact.form.email': 'البريد الإلكتروني',
       'contact.form.message': 'الرسالة',
       'contact.form.send': 'إرسال',
+      'contact.success': 'تم استلام رسالتكم! سنرد قريبًا.',
+      'contact.error': 'يرجى تعبئة الحقول المطلوبة قبل الإرسال.',
     }
   };
 
@@ -480,6 +486,21 @@
     });
   };
 
+  const applyLazyLoading = () => {
+    const skipLazy = ['brand-logo', 'brand-logo-hero'];
+    document.querySelectorAll('img').forEach(img => {
+      if (skipLazy.some(cls => img.classList.contains(cls))) return;
+      if (!img.hasAttribute('loading')) img.setAttribute('loading', 'lazy');
+      if (!img.hasAttribute('decoding')) img.setAttribute('decoding', 'async');
+    });
+  };
+
+  const primeSpamControls = () => {
+    document.querySelectorAll('[data-ts]')?.forEach(input => {
+      input.value = Date.now().toString();
+    });
+  };
+
   const goToLang = (lang) => {
     const parts = window.location.pathname.split('/');
     const file = parts.pop() || 'index.html';
@@ -513,6 +534,9 @@
   const initJoinForm = () => {
     const form = document.getElementById('joinForm');
     const success = document.getElementById('joinSuccess');
+    const error = document.getElementById('joinError');
+    const spamTrap = form?.querySelector('[data-spam-trap]');
+    const tsField = form?.querySelector('[data-ts]');
     if (!form) return;
 
     form.addEventListener('submit', (e) => {
@@ -537,11 +561,30 @@
 
       if (!form.checkValidity()) {
         form.classList.add('was-validated');
+        if (error) {
+          error.textContent = t('join.error', getLang());
+          error.classList.remove('d-none');
+          error.focus();
+        }
         return;
       }
+
+      const tooFast = tsField && tsField.value && Date.now() - Number(tsField.value) < 3000;
+      const spammy = spamTrap && spamTrap.value.trim() !== '';
+      if (tooFast || spammy) {
+        form.classList.add('was-validated');
+        if (error) {
+          error.textContent = t('join.error', getLang());
+          error.classList.remove('d-none');
+          error.focus();
+        }
+        return;
+      }
+      if (error) error.classList.add('d-none');
       // Simulate successful submission (no backend per README)
       form.reset();
       form.classList.remove('was-validated');
+      if (tsField) tsField.value = Date.now().toString();
       if (success) {
         success.textContent = t('join.success', getLang());
         success.classList.remove('d-none');
@@ -549,6 +592,55 @@
         setTimeout(() => success.classList.add('d-none'), 5000);
       } else {
         alert(t('join.success', getLang()));
+      }
+    });
+  };
+
+  const initContactForm = () => {
+    const form = document.querySelector('form[data-contact]');
+    const success = document.getElementById('contactSuccess');
+    const error = document.getElementById('contactError');
+    const spamTrap = form?.querySelector('[data-spam-trap]');
+    const tsField = form?.querySelector('[data-ts]');
+    if (!form) return;
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      if (!form.checkValidity()) {
+        form.classList.add('was-validated');
+        if (error) {
+          error.textContent = t('contact.error', getLang());
+          error.classList.remove('d-none');
+          error.focus();
+        }
+        return;
+      }
+
+      const tooFast = tsField && tsField.value && Date.now() - Number(tsField.value) < 3000;
+      const spammy = spamTrap && spamTrap.value.trim() !== '';
+      if (tooFast || spammy) {
+        form.classList.add('was-validated');
+        if (error) {
+          error.textContent = t('contact.error', getLang());
+          error.classList.remove('d-none');
+          error.focus();
+        }
+        return;
+      }
+      if (error) error.classList.add('d-none');
+
+      form.reset();
+      form.classList.remove('was-validated');
+      if (tsField) tsField.value = Date.now().toString();
+      if (success) {
+        success.textContent = t('contact.success', getLang());
+        success.classList.remove('d-none');
+        success.focus();
+        setTimeout(() => success.classList.add('d-none'), 5000);
+      } else {
+        alert(t('contact.success', getLang()));
       }
     });
   };
@@ -616,7 +708,10 @@
 
   document.addEventListener('DOMContentLoaded', () => {
     setActiveNav();
+    applyLazyLoading();
+    primeSpamControls();
     initJoinForm();
+    initContactForm();
     initGalleryFilters();
     initLogoSwap();
     applyLangLinks();

@@ -56,6 +56,20 @@ assets/js/main.js (optional small JS for interactions, nav, etc.)
 
 Implement a shared navigation bar and footer on all pages with consistent styling.
 
+## Deploying to production
+
+- Preview locally from the repo root with `python3 -m http.server 8000` then browse to `http://localhost:8000`.
+- Sync changes to the homeserver target `~/www/sps/` with rsync (SSH credentials live in the ops notes):
+  `sshpass -p '0000' rsync -av --delete --exclude '.git' -e "ssh -o StrictHostKeyChecking=accept-new" /mnt/c/Users/janoo/projects/sps.com/ abboudfam@10.70.171.21:~/www/sps/`
+- Restart the `sps_site` container after syncing so nginx serves new assets:
+  `sshpass -p '0000' ssh abboudfam@10.70.171.21 "echo '0000' | sudo -S docker restart sps_site"`
+
+### Cache busting
+
+- Whenever you change `assets/css/style.css` or `assets/js/main.js`, bump the query string version in every HTML page (e.g., `style.css?v=20251118b`).
+- Keep CDN fallbacks out of production and prefer locally hosted assets when available.
+- `robots.txt` and `sitemap.xml` now live at the repo root to guide crawlers.
+
 
 ---
 

@@ -384,6 +384,12 @@ footer a:hover { color: var(--color-gold); }
 .social-icon svg { width: 24px; height: 24px; fill: var(--color-white); }
 .social-icon:hover svg { fill: var(--color-gold); }
 
+/* Hide login and placeholder social links until live targets exist */
+.btn-login,
+.social-icon {
+  display: none !important;
+}
+
 /* Forms */
 .form-control:focus, .form-select:focus {
   box-shadow: 0 0 0 .25rem rgba(130,64,180,0.25);
