@@ -1,18 +1,18 @@
 ## Planned Improvements and Tasks
 
-- **SEO & sharing**
+- **SEO & sharing** *(implemented)*
   - Add `meta description`, Open Graph, Twitter cards, and canonical URLs per page.
 
-- **Contact & links**
+- **Contact & links** *(implemented)*
   - Replace placeholder address/email/phone site-wide.
   - Remove or hide dead links (Login, social) until real URLs exist.
 
-- **Performance**
+- **Performance** *(implemented)*
   - Compress/resize hero and gallery images.
   - Add `loading="lazy"` to all non-hero images.
   - Consider preloading logo and primary fonts.
 
-- **Resilience**
+- **Resilience** *(implemented)*
   - Self-host Google Fonts and Bootstrap to avoid CDN reliance.
   - Keep cache-busting/versioning updated.
 
