@@ -148,6 +148,12 @@
       'news.post3.title': 'Guide Unit Craft Workshop',
       'news.post3.body': 'The Guides spent the afternoon crafting gifts and cards for parish seniors, sharing joy and creativity.',
       'news.readmore': 'Read more',
+      // Not found
+      'notfound.code': 'Error 404',
+      'notfound.title': 'We couldn’t find that page',
+      'notfound.body': 'The link may be wrong or the page was moved. Head back home or reach out if you need help.',
+      'notfound.cta': 'Back to homepage',
+      'notfound.contact': 'Contact us',
 
       // Join
       'join.title': 'Join Us',
@@ -338,6 +344,12 @@
       'news.post3.title': 'ورشة أشغال يدوية لوحدة المرشدات',
       'news.post3.body': 'أمضت المرشدات فترة بعد الظهر في صنع هدايا وبطاقات لكبار السن في الرعية، بمشاركة الفرح والإبداع.',
       'news.readmore': 'اقرأ المزيد',
+      // Not found
+      'notfound.code': 'خطأ 404',
+      'notfound.title': 'لم نعثر على هذه الصفحة',
+      'notfound.body': 'قد يكون الرابط غير صحيح أو تم نقل الصفحة. عودوا إلى الصفحة الرئيسية أو تواصلوا معنا للمساعدة.',
+      'notfound.cta': 'عودة إلى الرئيسية',
+      'notfound.contact': 'تواصل معنا',
 
       // Join
       'join.title': 'انضم إلينا',
@@ -424,6 +436,10 @@
     contact: {
       en: 'Contact – St. Ephrem Patriarchal Syriac Scouts – Damascus',
       ar: 'اتصل بنا – فوج مار أفرام السرياني البطريركي – دمشق'
+    },
+    notfound: {
+      en: 'Page Not Found – St. Ephrem Patriarchal Syriac Scouts – Damascus',
+      ar: 'الصفحة غير موجودة – فوج مار أفرام السرياني البطريركي – دمشق'
     }
   };
 

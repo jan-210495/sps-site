@@ -21,7 +21,7 @@
   - Ensure focus outlines and `aria-pressed` states on toggles/buttons; keep `aria-current` on nav.
   - Confirm all visible strings have AR/EN variants.
 
-- **Operations**
+- **Operations** *(implemented)*
   - Add 404 page, `robots.txt`, and `sitemap.xml`.
   - Update README with deploy steps and cache-busting notes.
 

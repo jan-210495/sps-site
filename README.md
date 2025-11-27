@@ -418,6 +418,30 @@ Create and populate all the above files with valid HTML/CSS/JS and realistic pla
 ---
 
 You are allowed to create, modify, and delete files in the current project directory as needed to implement this website.
+
+---
+
+## Preview & Deployment
+
+### Local preview
+From the repo root run:
+
+```bash
+python3 -m http.server 8000
+```
+
+Then open http://localhost:8000 to browse every page (including `/en/`).
+
+### Deploy to the homeserver
+Use rsync to push the working tree (excluding `.git`) to the container host, then restart the site container so Cloudflare serves the updated assets:
+
+```bash
+sshpass -p '0000' rsync -av --delete --exclude '.git' -e "ssh -o StrictHostKeyChecking=accept-new" /mnt/c/Users/janoo/projects/sps.com/ abboudfam@10.70.171.21:~/www/sps/
+sshpass -p '0000' ssh abboudfam@10.70.171.21 "echo '0000' | sudo -S docker restart sps_site"
+```
+
+### Cache busting
+Update the `?v=` query string on `assets/css/style.css`, `assets/js/main.js`, and any new static assets whenever their content changes. This ensures Cloudflare/browser caches pull the latest versions after deployment.
 # sps-site
 # sps-site
 # sps-site
