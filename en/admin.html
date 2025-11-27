@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-default-lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Admin dashboard to edit news posts and featured media for St. Ephrem Patriarchal Syriac Scouts.">
+  <title>Admin Dashboard – St. Ephrem Patriarchal Syriac Scouts</title>
+  <link rel="preload" href="../assets/css/fonts.css?v=20251117d" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="../assets/css/fonts.css?v=20251117d"></noscript>
+  <link rel="stylesheet" href="../assets/vendor/bootstrap/bootstrap.min.css?v=20251117d">
+  <link rel="icon" type="image/png" href="../assets/images/logo-2.png">
+  <link rel="preload" as="image" href="../assets/images/logo-2.png" type="image/png">
+  <link rel="stylesheet" href="../assets/css/style.css?v=20251117c">
+  <link rel="stylesheet" href="../assets/css/admin.css?v=20251117d">
+  <script>(function(){const doc=document.documentElement;const lang=doc.getAttribute('data-default-lang')||'ar';doc.lang=lang;doc.dir=lang==='ar'?'rtl':'ltr';doc.classList.add('i18n-pending');})();</script>
+</head>
+<body data-page="admin">
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand fw-semibold d-flex align-items-center gap-2" href="index.html">
+        <img id="brandLogoImg" class="brand-logo" src="../assets/images/logo-2.png" alt="Logo">
+        <span data-i18n="nav.brand">St. Ephrem Scouts</span>
+      </a>
+      <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon" style="filter: invert(1)"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="index.html" data-i18n="nav.home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html" data-i18n="nav.about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="units.html" data-i18n="nav.units">Units</a></li>
+          <li class="nav-item"><a class="nav-link" href="events.html" data-i18n="nav.events">Events</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+        <div class="d-flex align-items-center flex-wrap ms-lg-3 navbar-actions">
+          <button class="btn btn-theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">
+            <span class="icon sun" aria-hidden="true">☀</span>
+            <span class="icon moon" aria-hidden="true">🌙</span>
+          </button>
+          <div class="lang-toggle" role="group" aria-label="Language toggle">
+            <a class="lang-link" data-lang="ar" href="#">AR</a>
+            <a class="lang-link" data-lang="en" href="#">EN</a>
+          </div>
+          <a href="login.html" class="btn btn-outline-light btn-login" data-auth-link data-login-href="login.html" data-dashboard-href="admin.html" data-i18n="nav.login">Login</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="py-5 bg-light-grey" data-admin-dashboard>
+    <div class="container mt-5 pt-4">
+      <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-4">
+        <div>
+          <h1 class="h3 mb-0" data-i18n="admin.title">Media & Admin Control Center</h1>
+          <p class="text-muted mb-0" data-i18n="admin.subtitle">Edit news cards, update featured images, and publish announcements.</p>
+        </div>
+        <div class="d-flex gap-2">
+          <span class="badge text-bg-secondary" id="roleBadge"></span>
+          <button class="btn btn-reset-ghost" id="logoutBtn" type="button" data-i18n="admin.logout">Log out</button>
+        </div>
+      </div>
+
+      <div id="adminAlerts" class="mb-4"></div>
+
+      <section class="content-card mb-5" id="newsManager">
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+          <div>
+            <h2 class="h4 mb-0" data-i18n="admin.news.title">News Manager</h2>
+            <p class="text-muted mb-0" data-i18n="admin.news.subtitle">Edit an existing card or publish a new post.</p>
+          </div>
+          <button class="btn btn-gold" type="button" data-refresh-news data-i18n="admin.refresh">Refresh</button>
+        </div>
+        <div id="newsList" class="row g-3 mb-4" data-news-list></div>
+        <form id="newsForm" class="row g-3 needs-validation" novalidate data-news-form>
+          <div class="col-md-6">
+            <label class="form-label" for="newsTitle" data-i18n="admin.news.form.title">Title</label>
+            <input type="text" id="newsTitle" name="title" class="form-control" required>
+            <div class="invalid-feedback" data-i18n="admin.validation.title">Enter a title.</div>
+          </div>
+          <div class="col-md-3">
+            <label class="form-label" for="newsDate" data-i18n="admin.news.form.date">Date</label>
+            <input type="date" id="newsDate" name="published_at" class="form-control" required>
+            <div class="invalid-feedback" data-i18n="admin.validation.date">Select a date.</div>
+          </div>
+          <div class="col-md-12">
+            <label class="form-label" for="newsBody" data-i18n="admin.news.form.body">Summary</label>
+            <textarea id="newsBody" name="body" rows="3" class="form-control" required></textarea>
+            <div class="invalid-feedback" data-i18n="admin.validation.body">Write a short summary.</div>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label" for="newsImage" data-i18n="admin.news.form.image">Card image</label>
+            <select id="newsImage" name="image" class="form-select" data-gallery-select></select>
+            <div class="form-text" data-i18n="admin.news.form.imageHint">Select from the gallery or upload via the API.</div>
+          </div>
+          <div class="col-md-6 d-flex align-items-end justify-content-end gap-2">
+            <button class="btn btn-reset-ghost" type="button" data-clear-news data-i18n="admin.reset">Reset</button>
+            <button class="btn btn-gold" type="submit" data-i18n="admin.news.form.save">Save Post</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="content-card mb-5" id="featuredManager">
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+          <div>
+            <h2 class="h4 mb-0" data-i18n="admin.featured.title">Featured Imagery</h2>
+            <p class="text-muted mb-0" data-i18n="admin.featured.subtitle">Update hero and gallery highlights.</p>
+          </div>
+        </div>
+        <div class="row g-3" data-featured-list></div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="pt-4 pb-4 mt-0">
+    <div class="container">
+      <div class="row g-3 align-items-center">
+        <div class="col-12 text-center text-lg-start">
+          <p class="mb-1" data-i18n="footer.name">St. Ephrem Patriarchal Syriac Scouts – Damascus</p>
+          <small class="text-secondary">© <span id="year"></span> St. Ephrem Scouts. All rights reserved.</small>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="../assets/vendor/bootstrap/bootstrap.bundle.min.js?v=20251117d"></script>
+  <script src="../assets/js/main.js?v=20251117c"></script>
+  <script src="../assets/js/auth.js?v=20251117d"></script>
+</body>
+</html>

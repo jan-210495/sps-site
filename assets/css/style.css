@@ -428,6 +428,22 @@ footer a:hover { color: var(--color-gold); }
   color: #fff;
   border-color: var(--color-primary);
 }
+.news-card { position: relative; }
+.news-edit-btn {
+  position: absolute;
+  top: 1rem;
+  inset-inline-end: 1rem;
+  z-index: 3;
+  display: none;
+}
+.news-card.editable .news-edit-btn { display: inline-flex; }
+.news-card .inline-editor {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+[data-theme="dark"] .news-card .inline-editor { border-color: rgba(255,255,255,0.12); }
+.news-card .inline-editor textarea { resize: vertical; }
 .gallery [data-filter]:focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;

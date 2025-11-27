@@ -18,6 +18,7 @@
       'nav.join': 'Join Us',
       'nav.contact': 'Contact',
       'nav.login': 'Login',
+      'nav.dashboard': 'Dashboard',
       'nav.more': 'More',
       'nav.theme': 'Dark Mode',
 
@@ -218,6 +219,7 @@
       'nav.join': 'انضم إلينا',
       'nav.contact': 'اتصل بنا',
       'nav.login': 'تسجيل الدخول',
+      'nav.dashboard': 'لوحة التحكم',
       'nav.more': 'المزيد',
       'nav.theme': 'الوضع الداكن',
 
@@ -449,6 +451,19 @@
       en: 'Page Not Found – St. Ephrem Patriarchal Syriac Scouts – Damascus',
       ar: 'الصفحة غير موجودة – فوج مار أفرام السرياني البطريركي – دمشق'
     }
+  };
+  const AUTH_STORAGE_KEY = 'sps-auth';
+  const getAuthState = () => {
+    try {
+      const raw = localStorage.getItem(AUTH_STORAGE_KEY);
+      return raw ? JSON.parse(raw) : null;
+    } catch (err) {
+      return null;
+    }
+  };
+  const hasEditorRole = () => {
+    const role = getAuthState()?.role;
+    return role === 'admin' || role === 'media-admin';
   };
   const MIN_FORM_TIME = 2000;
   const setFormTimestamp = (form) => {
@@ -777,6 +792,7 @@
   enforceStoredLangPreference();
   const initialLang = getLang();
   applyI18n(initialLang);
+  updateAuthLinks();
   document.documentElement.classList.remove('i18n-pending');
 
   document.addEventListener('DOMContentLoaded', () => {
@@ -786,6 +802,8 @@
     initGalleryFilters();
     initLogoSwap();
     applyLangLinks();
+    updateAuthLinks();
+    initNewsInlineEditor();
     // Language toggle
     document.querySelectorAll('.lang-toggle [data-lang]')?.forEach(btn => {
       btn.addEventListener('click', (e) => {
@@ -818,4 +836,178 @@
       });
     }
   });
+  window.addEventListener('storage', (event) => {
+    if (event.key === AUTH_STORAGE_KEY) {
+      updateAuthLinks();
+      initNewsInlineEditor();
+    }
+  });
+  window.addEventListener('sps-auth-update', () => {
+    updateAuthLinks();
+    initNewsInlineEditor();
+  });
 })();
+      // Auth
+      'login.title': 'Media Portal Sign In',
+      'login.lead': 'Admins, leaders, and media team can sign in to manage news stories and featured images.',
+      'login.email': 'Email',
+      'login.password': 'Password',
+      'login.submit': 'Sign in',
+      'login.error': 'Invalid credentials. Please try again.',
+      'login.note': 'Access is limited to authorized roles: admin, leaders, media-admin.',
+      'login.validation.email': 'Please enter a valid email.',
+      'login.validation.password': 'Enter your password.',
+      'admin.title': 'Media & Admin Control Center',
+      'admin.subtitle': 'Edit news cards, update featured images, and publish announcements.',
+      'admin.logout': 'Log out',
+      'admin.refresh': 'Refresh',
+      'admin.reset': 'Reset',
+      'admin.login_required': 'Please sign in to continue.',
+      'admin.news.title': 'News Manager',
+      'admin.news.subtitle': 'Edit an existing card or publish a new post.',
+      'admin.news.form.title': 'Title',
+      'admin.news.form.date': 'Date',
+      'admin.news.form.body': 'Summary',
+      'admin.news.form.image': 'Card image',
+      'admin.news.form.imageHint': 'Select from the gallery or upload via the API.',
+      'admin.news.form.save': 'Save Post',
+      'admin.featured.title': 'Featured Imagery',
+      'admin.featured.subtitle': 'Update hero and gallery highlights.',
+      'admin.validation.title': 'Enter a title.',
+      'admin.validation.date': 'Select a date.',
+      'admin.validation.body': 'Write a short summary.',
+      'admin.inline.save': 'Save changes',
+      'admin.inline.cancel': 'Cancel',
+      'admin.edit': 'Edit',
+      // Auth
+      'login.title': 'تسجيل دخول بوابة الإعلام',
+      'login.lead': 'يمكن للإدارة والقادة وفريق الإعلام تسجيل الدخول لإدارة الأخبار والصور المميزة.',
+      'login.email': 'البريد الإلكتروني',
+      'login.password': 'كلمة المرور',
+      'login.submit': 'تسجيل الدخول',
+      'login.error': 'بيانات الاعتماد غير صحيحة. حاول مجددًا.',
+      'login.note': 'الدخول محصور بالأدوار المخولة: الإدارة، القادة، مسؤولو الإعلام.',
+      'login.validation.email': 'يرجى إدخال بريد إلكتروني صالح.',
+      'login.validation.password': 'يرجى إدخال كلمة المرور.',
+      'admin.title': 'مركز التحكم الإعلامي والإداري',
+      'admin.subtitle': 'عدّل بطاقات الأخبار وحدث الصور المميزة وانشر الإعلانات.',
+      'admin.logout': 'تسجيل الخروج',
+      'admin.refresh': 'تحديث',
+      'admin.reset': 'مسح',
+      'admin.login_required': 'يرجى تسجيل الدخول للمتابعة.',
+      'admin.news.title': 'إدارة الأخبار',
+      'admin.news.subtitle': 'عدّل بطاقة موجودة أو أنشر خبراً جديداً.',
+      'admin.news.form.title': 'العنوان',
+      'admin.news.form.date': 'التاريخ',
+      'admin.news.form.body': 'الملخص',
+      'admin.news.form.image': 'صورة البطاقة',
+      'admin.news.form.imageHint': 'اختر من المعرض أو ارفع عبر الواجهة البرمجية.',
+      'admin.news.form.save': 'حفظ الخبر',
+      'admin.featured.title': 'الصور المميزة',
+      'admin.featured.subtitle': 'حدّث صور الواجهة والمعرض.',
+      'admin.validation.title': 'أدخل العنوان.',
+      'admin.validation.date': 'اختر تاريخًا.',
+      'admin.validation.body': 'أدخل ملخصًا.',
+      'admin.inline.save': 'حفظ التعديلات',
+      'admin.inline.cancel': 'إلغاء',
+      'admin.edit': 'تعديل',
+  const updateAuthLinks = () => {
+    const link = document.querySelector('[data-auth-link]');
+    if (!link) return;
+    const lang = getLang();
+    const state = getAuthState();
+    const loginHref = link.dataset.loginHref || link.getAttribute('href');
+    const dashboardHref = link.dataset.dashboardHref || loginHref;
+    if (state?.token) {
+      link.href = dashboardHref;
+      link.textContent = t('nav.dashboard', lang);
+    } else {
+      link.href = loginHref;
+      link.textContent = t('nav.login', lang);
+    }
+  };
+
+  const secureJsonRequest = async (url, payload) => {
+    const auth = getAuthState();
+    if (!auth?.token) {
+      throw new Error(t('admin.login_required', getLang()));
+    }
+    const response = await fetch(url, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+        Authorization: `Bearer ${auth.token}`,
+      },
+      body: JSON.stringify(payload),
+    });
+    if (!response.ok) {
+      const data = await response.json().catch(() => ({}));
+      throw new Error(data.message || 'Request failed');
+    }
+    return response.json();
+  };
+
+  const initNewsInlineEditor = () => {
+    if (!hasEditorRole()) return;
+    const cards = document.querySelectorAll('[data-news-card]');
+    cards.forEach(card => {
+      card.classList.add('editable');
+      const btn = card.querySelector('[data-edit-news-card]');
+      if (!btn) return;
+      btn.classList.remove('d-none');
+      btn.addEventListener('click', () => {
+        let form = card.querySelector('form.inline-editor');
+        if (form) {
+          form.classList.toggle('d-none');
+          return;
+        }
+        form = document.createElement('form');
+        form.className = 'inline-editor needs-validation';
+        form.innerHTML = `
+          <div class="row g-2">
+            <div class="col-md-6">
+              <label class="form-label">${t('admin.news.form.title', getLang())}</label>
+              <input class="form-control" name="title" required value="${card.dataset.newsTitle || ''}">
+            </div>
+            <div class="col-md-3">
+              <label class="form-label">${t('admin.news.form.date', getLang())}</label>
+              <input class="form-control" name="published_at" type="date" required value="${card.dataset.newsDate || ''}">
+            </div>
+            <div class="col-12">
+              <label class="form-label">${t('admin.news.form.body', getLang())}</label>
+              <textarea class="form-control" name="body" rows="3" required>${card.dataset.newsBody || ''}</textarea>
+            </div>
+            <div class="col-12 d-flex gap-2 justify-content-end">
+              <button type="button" class="btn btn-reset-ghost" data-inline-cancel>${t('admin.inline.cancel', getLang())}</button>
+              <button type="submit" class="btn btn-gold">${t('admin.inline.save', getLang())}</button>
+            </div>
+          </div>`;
+        card.appendChild(form);
+        form.addEventListener('click', (evt) => {
+          if (evt.target?.matches('[data-inline-cancel]')) {
+            form.classList.add('d-none');
+          }
+        });
+        form.addEventListener('submit', async (evt) => {
+          evt.preventDefault();
+          evt.stopPropagation();
+          form.classList.add('was-validated');
+          if (!form.checkValidity()) return;
+          const payload = Object.fromEntries(new FormData(form));
+          try {
+            await secureJsonRequest(`/api/media/news/${card.dataset.newsId}`, payload);
+            card.dataset.newsTitle = payload.title;
+            card.dataset.newsDate = payload.published_at;
+            card.dataset.newsBody = payload.body;
+            card.querySelector('[data-news-title]').textContent = payload.title;
+            card.querySelector('[data-news-date]').textContent = payload.published_at;
+            card.querySelector('[data-news-body]').textContent = payload.body;
+            form.classList.add('d-none');
+          } catch (err) {
+            alert(err.message);
+          }
+        });
+      });
+    });
+  };

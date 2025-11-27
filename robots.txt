@@ -1,4 +1,6 @@
 User-agent: *
+Disallow: /admin.html
+Disallow: /en/admin.html
 Allow: /
 
 Sitemap: https://sps.abboud.cloud/sitemap.xml

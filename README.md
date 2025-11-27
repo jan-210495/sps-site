@@ -442,6 +442,50 @@ sshpass -p '0000' ssh abboudfam@10.70.171.21 "echo '0000' | sudo -S docker resta
 
 ### Cache busting
 Update the `?v=` query string on `assets/css/style.css`, `assets/js/main.js`, and any new static assets whenever their content changes. This ensures Cloudflare/browser caches pull the latest versions after deployment.
+
+### Backend API (media/admin tools)
+An optional Express API resides under `server/` to power login, role-based editing, and media management.
+
+1. Duplicate environment config:
+   ```bash
+   cd server
+   cp .env.example .env
+   ```
+   Fill in your MySQL credentials, JWT secret, and allowed origins.
+2. Install dependencies & run:
+   ```bash
+   npm install
+   npm run dev
+   ```
+3. Database schema (simplified example):
+   ```sql
+   CREATE TABLE users (
+     id INT AUTO_INCREMENT PRIMARY KEY,
+     name VARCHAR(120) NOT NULL,
+     email VARCHAR(120) UNIQUE NOT NULL,
+     password_hash VARCHAR(255) NOT NULL,
+     role ENUM('admin','leaders','media-admin') DEFAULT 'media-admin'
+   );
+
+   CREATE TABLE news (
+     id INT AUTO_INCREMENT PRIMARY KEY,
+     title VARCHAR(180) NOT NULL,
+     body TEXT NOT NULL,
+     image VARCHAR(255),
+     published_at DATE,
+     author_id INT,
+     FOREIGN KEY (author_id) REFERENCES users(id)
+   );
+
+   CREATE TABLE featured_media (
+     slot VARCHAR(32) PRIMARY KEY,
+     image_path VARCHAR(255) NOT NULL,
+     updated_by INT,
+     FOREIGN KEY (updated_by) REFERENCES users(id)
+   );
+   ```
+4. Seed at least one admin user with a bcrypt hash (use `node -e "console.log(require('bcrypt').hashSync('password', 10))"`).
+5. The API exposes `/api/auth/login`, `/api/media/news`, `/api/media/dashboard`, `/api/media/gallery/upload`, `/api/media/featured`. The front-end login/admin pages communicate with these endpoints; ensure CORS `ALLOWED_ORIGIN` matches your local preview host.
 # sps-site
 # sps-site
 # sps-site

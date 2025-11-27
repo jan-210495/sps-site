@@ -29,11 +29,11 @@
   - Wire Join and Contact to a real backend handler or form service.
   - Add basic spam controls (honeypot + timestamp) and inline errors.
 
-- **Auth & roles**
+- **Auth & roles** *(implemented)*
   - Implement login backed by a DB (MySQL or similar) with roles: admin, leaders, media-admin.
   - Persist users/permissions securely; plan session handling.
 
-- **Media/admin UX**
+- **Media/admin UX** *(implemented)*
   - Add authenticated UI for admin and media-admin to edit news cards and featured images inline (e.g., edit icons).
   - Support choosing/uploading images from gallery; enforce permissions.
   - Keep the experience friendly and page-contextual.
