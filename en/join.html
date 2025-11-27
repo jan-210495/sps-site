@@ -85,35 +85,35 @@
           <div class="col-md-6">
             <label class="form-label" for="name" data-i18n="join.name">Name</label>
             <input type="text" id="name" name="name" class="form-control" required>
-            <div class="invalid-feedback">Please enter your name.</div>
+            <div class="invalid-feedback" data-i18n="join.validation.name">Please enter your name.</div>
           </div>
           <div class="col-md-3">
             <label class="form-label" for="age" data-i18n="join.age">Age</label>
             <input type="number" id="age" name="age" class="form-control" min="6" max="80" required>
-            <div class="invalid-feedback">Please provide a valid age.</div>
+            <div class="invalid-feedback" data-i18n="join.validation.age">Please provide a valid age.</div>
           </div>
           <div class="col-md-3">
             <label class="form-label" for="unit" data-i18n="join.unit">Preferred unit</label>
             <select id="unit" name="unit" class="form-select" required>
-              <option value="" selected disabled>Choose...</option>
+              <option value="" selected disabled data-i18n="join.option.placeholder">Choose...</option>
               <option value="cubs" data-i18n="join.unit.cubs">Cubs (أشبال)</option>
               <option value="scouts" data-i18n="join.unit.scouts">Scouts</option>
               <option value="guides" data-i18n="join.unit.guides">Guides</option>
               <option value="rovers" data-i18n="join.unit.rovers">Rovers (جوالة)</option>
               <option value="band" data-i18n="join.unit.band">Band (الفرقة النحاسية)</option>
             </select>
-            <div class="invalid-feedback">Please select a unit.</div>
+            <div class="invalid-feedback" data-i18n="join.validation.unit">Please select a unit.</div>
           </div>
 
           <div class="col-md-6">
             <label class="form-label" for="phone" data-i18n="join.phone">Phone / WhatsApp</label>
             <input type="tel" id="phone" name="phone" class="form-control" placeholder="+963 ..." data-i18n-attr="placeholder: join.phone.ph">
-            <div class="invalid-feedback">Please enter a phone or email.</div>
+            <div class="invalid-feedback" data-i18n="join.validation.contact">Please enter a phone or email.</div>
           </div>
           <div class="col-md-6">
             <label class="form-label" for="email" data-i18n="join.email">Email</label>
             <input type="email" id="email" name="email" class="form-control" placeholder="name@example.com" data-i18n-attr="placeholder: join.email.ph">
-            <div class="invalid-feedback">Please enter a valid email or phone.</div>
+            <div class="invalid-feedback" data-i18n="join.validation.email">Please enter a valid email or phone.</div>
           </div>
 
           <div class="col-12">

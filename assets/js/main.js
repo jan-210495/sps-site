@@ -170,6 +170,12 @@
       'join.submit': 'Submit',
       'join.reset': 'Reset',
       'join.contact_requirement': 'Please provide a phone or an email.',
+      'join.option.placeholder': 'Choose...',
+      'join.validation.name': 'Please enter your name.',
+      'join.validation.age': 'Please provide a valid age.',
+      'join.validation.unit': 'Please select a unit.',
+      'join.validation.contact': 'Please enter a phone or email.',
+      'join.validation.email': 'Please enter a valid email or phone.',
 
       // Contact
       'contact.title': 'Contact',
@@ -186,6 +192,9 @@
       'contact.form.email': 'Email',
       'contact.form.message': 'Message',
       'contact.form.send': 'Send',
+      'contact.validation.name': 'Please enter your name.',
+      'contact.validation.email': 'Please enter a valid email.',
+      'contact.validation.message': 'Please enter a message.',
     },
     ar: {
       'nav.brand': 'فوج مار أفرام السرياني',
@@ -351,6 +360,12 @@
       'join.submit': 'إرسال',
       'join.reset': 'مسح',
       'join.contact_requirement': 'يرجى إدخال رقم هاتف أو بريد إلكتروني.',
+      'join.option.placeholder': 'اختر...',
+      'join.validation.name': 'يرجى إدخال الاسم.',
+      'join.validation.age': 'يرجى إدخال عمر صالح.',
+      'join.validation.unit': 'يرجى اختيار وحدة.',
+      'join.validation.contact': 'يرجى إدخال رقم هاتف أو بريد إلكتروني.',
+      'join.validation.email': 'يرجى إدخال بريد إلكتروني أو هاتف صالح.',
 
       // Contact
       'contact.title': 'اتصل بنا',
@@ -367,6 +382,9 @@
       'contact.form.email': 'البريد الإلكتروني',
       'contact.form.message': 'الرسالة',
       'contact.form.send': 'إرسال',
+      'contact.validation.name': 'يرجى إدخال الاسم.',
+      'contact.validation.email': 'يرجى إدخال بريد إلكتروني صالح.',
+      'contact.validation.message': 'يرجى إدخال الرسالة.',
     }
   };
 
@@ -409,8 +427,23 @@
     }
   };
 
+  const getStoredLang = () => {
+    try {
+      return localStorage.getItem('lang');
+    } catch (err) {
+      return null;
+    }
+  };
+  const setStoredLang = (lang) => {
+    try {
+      localStorage.setItem('lang', lang);
+    } catch (err) {
+      /* ignore storage issues */
+    }
+  };
   const getDefaultLang = () => document.documentElement.dataset.defaultLang || 'ar';
-  const getLang = () => getDefaultLang();
+  const getLang = () => getStoredLang() || getDefaultLang();
+  const getPathLang = () => (window.location.pathname.split('/').includes('en') ? 'en' : 'ar');
   const t = (key, lang) => (i18n[lang] && i18n[lang][key]) || i18n.en[key] || key;
   const getTheme = () => (localStorage.getItem('theme') === 'dark' ? 'dark' : 'light');
 
@@ -493,6 +526,14 @@
     }
   };
 
+  const enforceStoredLangPreference = () => {
+    const stored = getStoredLang();
+    if (!stored) return;
+    if (stored !== getPathLang()) {
+      goToLang(stored);
+    }
+  };
+
   const applyLangLinks = () => {
     const parts = window.location.pathname.split('/');
     const file = parts.pop() || 'index.html';
@@ -560,6 +601,12 @@
     const buttons = container.querySelectorAll('[data-filter]');
     const items = container.querySelectorAll('.gallery-item');
 
+    const setPressed = (activeBtn) => {
+      buttons.forEach(btn => {
+        btn.setAttribute('aria-pressed', btn === activeBtn ? 'true' : 'false');
+      });
+    };
+
     const applyFilter = (filter) => {
       items.forEach(item => {
         const cat = item.getAttribute('data-category');
@@ -576,12 +623,18 @@
         const filter = btn.getAttribute('data-filter');
         buttons.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
+        setPressed(btn);
         applyFilter(filter);
       });
     });
 
-    // Default to 'all'
-    applyFilter('all');
+    if (buttons.length) {
+      const activeBtn = Array.from(buttons).find(b => b.classList.contains('active')) || buttons[0];
+      setPressed(activeBtn);
+      applyFilter(activeBtn.getAttribute('data-filter') || 'all');
+    } else {
+      applyFilter('all');
+    }
   };
 
   // Swap logo PNG if available; otherwise keep PDF embed visible
@@ -610,6 +663,7 @@
   };
 
   // Apply language immediately to avoid flash of default text
+  enforceStoredLangPreference();
   const initialLang = getLang();
   applyI18n(initialLang);
   document.documentElement.classList.remove('i18n-pending');
@@ -625,7 +679,7 @@
       btn.addEventListener('click', (e) => {
         e.preventDefault();
         const lang = btn.getAttribute('data-lang');
-        localStorage.setItem('lang', lang);
+        setStoredLang(lang);
         goToLang(lang);
       });
     });

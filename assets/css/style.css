@@ -392,15 +392,26 @@ footer a:hover { color: var(--color-gold); }
 .btn { font-weight: 700; }
 .btn-burgundy { background: var(--color-burgundy); color: #fff; border: none; }
 .btn-burgundy:hover { background: var(--color-accent); color: #fff; }
+.lang-toggle button:focus-visible,
+.lang-toggle a:focus-visible {
+  outline: 2px solid rgba(255,255,255,0.85);
+  outline-offset: 2px;
+}
 .btn-gold {
-  background: #ffffff;
+  background: var(--color-gold);
   color: var(--color-primary);
-  border: 2px solid var(--color-primary);
+  border: 2px solid var(--color-gold);
+  box-shadow: 0 8px 20px rgba(10,26,51,0.15);
 }
 .btn-gold:hover {
-  background: var(--color-primary);
-  color: #fff;
-  border-color: var(--color-primary);
+  background: #b79d3c;
+  color: var(--color-primary);
+  border-color: #b79d3c;
+}
+.btn-gold:focus-visible,
+.btn-reset-ghost:focus-visible {
+  outline: 3px solid rgba(10,26,51,0.35);
+  outline-offset: 3px;
 }
 .btn-inverse-hover:hover {
   background: #ffffff !important;
@@ -416,6 +427,10 @@ footer a:hover { color: var(--color-gold); }
   background: var(--color-primary);
   color: #fff;
   border-color: var(--color-primary);
+}
+.gallery [data-filter]:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
 }
 
 /* Bootstrap button overrides to match brand */

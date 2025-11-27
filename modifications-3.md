@@ -16,7 +16,7 @@
   - Self-host Google Fonts and Bootstrap to avoid CDN reliance.
   - Keep cache-busting/versioning updated.
 
-- **Accessibility & i18n**
+- **Accessibility & i18n** *(implemented)*
   - Verify gold contrast on light backgrounds/hover states.
   - Ensure focus outlines and `aria-pressed` states on toggles/buttons; keep `aria-current` on nav.
   - Confirm all visible strings have AR/EN variants.
