@@ -25,7 +25,7 @@
   - Add 404 page, `robots.txt`, and `sitemap.xml`.
   - Update README with deploy steps and cache-busting notes.
 
-- **Forms**
+- **Forms** *(implemented)*
   - Wire Join and Contact to a real backend handler or form service.
   - Add basic spam controls (honeypot + timestamp) and inline errors.
 

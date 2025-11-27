@@ -93,21 +93,28 @@
         </div>
         <div class="col-lg-7">
           <h2 class="h5 section-title" data-i18n="contact.form.title">Send a Message</h2>
-          <form class="needs-validation" novalidate>
+          <div id="contactSuccess" class="alert alert-success d-none" role="alert" tabindex="-1" data-i18n="contact.success">Thank you! We received your note.</div>
+          <div id="contactError" class="alert alert-danger d-none" role="alert" data-i18n="contact.error">Unable to send your message. Please try again.</div>
+          <form id="contactForm" class="needs-validation" novalidate action="https://formspree.io/f/xzbnnyjb" data-endpoint="https://formspree.io/f/xzbnnyjb" data-form-name="contact-form">
             <div class="row g-3">
+              <div class="d-none" aria-hidden="true">
+                <label class="form-label" for="contactField">Do not fill this field</label>
+                <input class="form-control" id="contactField" name="preferred_time" data-honeypot>
+              </div>
+              <input type="hidden" name="form_timestamp" data-timestamp>
               <div class="col-md-6">
                 <label class="form-label" for="cname" data-i18n="contact.form.name">Name</label>
-                <input class="form-control" id="cname" required>
+                <input class="form-control" id="cname" name="name" required>
                 <div class="invalid-feedback" data-i18n="contact.validation.name">Please enter your name.</div>
               </div>
               <div class="col-md-6">
                 <label class="form-label" for="cemail" data-i18n="contact.form.email">Email</label>
-                <input class="form-control" type="email" id="cemail" required>
+                <input class="form-control" type="email" id="cemail" name="email" required>
                 <div class="invalid-feedback" data-i18n="contact.validation.email">Please enter a valid email.</div>
               </div>
               <div class="col-12">
                 <label class="form-label" for="cmsg" data-i18n="contact.form.message">Message</label>
-              <textarea class="form-control" id="cmsg" rows="4" required></textarea>
+              <textarea class="form-control" id="cmsg" name="message" rows="4" required></textarea>
               <div class="invalid-feedback" data-i18n="contact.validation.message">Please enter a message.</div>
             </div>
             <div class="col-12">
@@ -131,20 +138,7 @@
     </div>
   </footer>
 
-  <script>document.getElementById('year').textContent = new Date().getFullYear();
-  // Simple client-side validation for contact form
-  (function(){
-    const form = document.querySelector('form.needs-validation');
-    if (!form) return;
-    form.addEventListener('submit', (e) => {
-      if (!form.checkValidity()) {
-        e.preventDefault();
-        e.stopPropagation();
-      }
-      form.classList.add('was-validated');
-    });
-  })();
-  </script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
   <script src="assets/vendor/bootstrap/bootstrap.bundle.min.js?v=20251117d"></script>
   <script src="assets/js/main.js?v=20251117c"></script>
 </body>

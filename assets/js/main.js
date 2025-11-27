@@ -182,6 +182,7 @@
       'join.validation.unit': 'Please select a unit.',
       'join.validation.contact': 'Please enter a phone or email.',
       'join.validation.email': 'Please enter a valid email or phone.',
+      'join.error': 'Unable to submit. Please try again.',
 
       // Contact
       'contact.title': 'Contact',
@@ -201,6 +202,9 @@
       'contact.validation.name': 'Please enter your name.',
       'contact.validation.email': 'Please enter a valid email.',
       'contact.validation.message': 'Please enter a message.',
+      'contact.success': 'Thank you! We received your note.',
+      'contact.error': 'Unable to send your message. Please try again.',
+      'forms.spam': 'Submission blocked. Please try again.',
     },
     ar: {
       'nav.brand': 'فوج مار أفرام السرياني',
@@ -378,6 +382,7 @@
       'join.validation.unit': 'يرجى اختيار وحدة.',
       'join.validation.contact': 'يرجى إدخال رقم هاتف أو بريد إلكتروني.',
       'join.validation.email': 'يرجى إدخال بريد إلكتروني أو هاتف صالح.',
+      'join.error': 'تعذر إرسال الطلب، يرجى المحاولة مجددًا.',
 
       // Contact
       'contact.title': 'اتصل بنا',
@@ -397,6 +402,9 @@
       'contact.validation.name': 'يرجى إدخال الاسم.',
       'contact.validation.email': 'يرجى إدخال بريد إلكتروني صالح.',
       'contact.validation.message': 'يرجى إدخال الرسالة.',
+      'contact.success': 'شكرًا لكم! استلمنا رسالتكم.',
+      'contact.error': 'تعذر إرسال الرسالة، يرجى المحاولة مجددًا.',
+      'forms.spam': 'تم حجب الطلب. يرجى المحاولة مجددًا خلال لحظات.',
     }
   };
 
@@ -441,6 +449,48 @@
       en: 'Page Not Found – St. Ephrem Patriarchal Syriac Scouts – Damascus',
       ar: 'الصفحة غير موجودة – فوج مار أفرام السرياني البطريركي – دمشق'
     }
+  };
+  const MIN_FORM_TIME = 2000;
+  const setFormTimestamp = (form) => {
+    const ts = form?.querySelector('[data-timestamp]');
+    if (ts) ts.value = Date.now().toString();
+  };
+  const isSpamAttempt = (form) => {
+    const honeypot = form?.querySelector('[data-honeypot]');
+    if (honeypot && honeypot.value.trim() !== '') return true;
+    const ts = form?.querySelector('[data-timestamp]');
+    if (ts) {
+      const start = parseInt(ts.value || '0', 10);
+      if (!start || Date.now() - start < MIN_FORM_TIME) return true;
+    }
+    return false;
+  };
+  const showAlert = (el, message) => {
+    if (!el) {
+      alert(message);
+      return;
+    }
+    el.textContent = message;
+    el.classList.remove('d-none');
+    if (el.hasAttribute('tabindex') && typeof el.focus === 'function') {
+      el.focus();
+    }
+  };
+  const hideAlert = (el) => {
+    if (el) el.classList.add('d-none');
+  };
+  const submitFormData = async (form) => {
+    const endpoint = form.dataset.endpoint || form.getAttribute('action');
+    if (!endpoint) throw new Error('missing_endpoint');
+    const formData = new FormData(form);
+    formData.append('form_name', form.getAttribute('data-form-name') || form.id || 'web-form');
+    const response = await fetch(endpoint, {
+      method: 'POST',
+      headers: { Accept: 'application/json' },
+      body: formData,
+    });
+    if (!response.ok) throw new Error('request_failed');
+    return response;
   };
 
   const getStoredLang = () => {
@@ -570,42 +620,50 @@
   const initJoinForm = () => {
     const form = document.getElementById('joinForm');
     const success = document.getElementById('joinSuccess');
+    const error = document.getElementById('joinError');
     if (!form) return;
+    setFormTimestamp(form);
 
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       e.stopPropagation();
+      const lang = getLang();
+      hideAlert(error);
 
-      // At least one contact method (phone or email)
       const phone = document.getElementById('phone');
       const email = document.getElementById('email');
       const hasContact = (phone?.value || '').trim() !== '' || (email?.value || '').trim() !== '';
+      const contactMessage = t('join.contact_requirement', lang);
       if (phone && email) {
-        const lang = getLang();
-        const msg = t('join.contact_requirement', lang);
         if (!hasContact) {
-          phone.setCustomValidity(msg);
-          email.setCustomValidity(msg);
+          phone.setCustomValidity(contactMessage);
+          email.setCustomValidity(contactMessage);
         } else {
           phone.setCustomValidity('');
           email.setCustomValidity('');
         }
       }
 
-      if (!form.checkValidity()) {
-        form.classList.add('was-validated');
+      form.classList.add('was-validated');
+      if (!form.checkValidity()) return;
+      if (isSpamAttempt(form)) {
+        showAlert(error, t('forms.spam', lang));
         return;
       }
-      // Simulate successful submission (no backend per README)
-      form.reset();
-      form.classList.remove('was-validated');
-      if (success) {
-        success.textContent = t('join.success', getLang());
-        success.classList.remove('d-none');
-        success.focus();
-        setTimeout(() => success.classList.add('d-none'), 5000);
-      } else {
-        alert(t('join.success', getLang()));
+
+      try {
+        await submitFormData(form);
+        form.reset();
+        form.classList.remove('was-validated');
+        setFormTimestamp(form);
+        if (success) {
+          success.textContent = t('join.success', lang);
+          success.classList.remove('d-none');
+          success.focus();
+          setTimeout(() => success.classList.add('d-none'), 5000);
+        }
+      } catch (err) {
+        showAlert(error, t('join.error', lang));
       }
     });
   };
@@ -653,6 +711,43 @@
     }
   };
 
+  const initContactForm = () => {
+    const form = document.getElementById('contactForm');
+    const success = document.getElementById('contactSuccess');
+    const error = document.getElementById('contactError');
+    if (!form) return;
+    setFormTimestamp(form);
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const lang = getLang();
+      hideAlert(error);
+      form.classList.add('was-validated');
+      if (!form.checkValidity()) return;
+
+      if (isSpamAttempt(form)) {
+        showAlert(error, t('forms.spam', lang));
+        return;
+      }
+
+      try {
+        await submitFormData(form);
+        form.reset();
+        form.classList.remove('was-validated');
+        setFormTimestamp(form);
+        if (success) {
+          success.textContent = t('contact.success', lang);
+          success.classList.remove('d-none');
+          if (typeof success.focus === 'function') success.focus();
+          setTimeout(() => success.classList.add('d-none'), 5000);
+        }
+      } catch (err) {
+        showAlert(error, t('contact.error', lang));
+      }
+    });
+  };
+
   // Swap logo PNG if available; otherwise keep PDF embed visible
   const initLogoSwap = () => {
     const candidates = [
@@ -687,6 +782,7 @@
   document.addEventListener('DOMContentLoaded', () => {
     setActiveNav();
     initJoinForm();
+    initContactForm();
     initGalleryFilters();
     initLogoSwap();
     applyLangLinks();
