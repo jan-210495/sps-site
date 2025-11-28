@@ -10,11 +10,22 @@
   <link rel="stylesheet" href="../assets/vendor/bootstrap/bootstrap.min.css?v=20251117d">
   <link rel="icon" type="image/png" href="../assets/images/logo-2.png">
   <link rel="preload" as="image" href="../assets/images/logo-2.png" type="image/png">
-  <link rel="stylesheet" href="../assets/css/style.css?v=20251117c">
+  <link rel="stylesheet" href="../assets/css/style.css?v=20240206a">
   <script>(function(){const doc=document.documentElement;const lang=doc.getAttribute('data-default-lang')||'ar';doc.lang=lang;doc.dir=lang==='ar'?'rtl':'ltr';doc.classList.add('i18n-pending');})();</script>
 </head>
-<body data-page="login">
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+<body class="has-announcement" data-page="login">
+    <!-- Navbar -->
+  <div class="announcement-bar is-active" data-announcement role="status">
+    <div class="container d-flex flex-wrap align-items-center justify-content-between gap-3">
+      <div class="d-flex flex-wrap align-items-center gap-2 text-start">
+        <span class="announcement-pill" data-i18n="announcement.tag">Update</span>
+        <p class="mb-0" data-i18n="announcement.text">Community Service Day this Saturday, 9:00 AM – Bab Touma.</p>
+      </div>
+      <a class="btn btn-reset-ghost btn-sm text-uppercase fw-semibold" href="events.html" data-i18n="announcement.cta">See details</a>
+    </div>
+  </div>
+
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top glassy" data-nav>
     <div class="container">
       <a class="navbar-brand fw-semibold d-flex align-items-center gap-2" href="index.html">
         <img id="brandLogoImg" class="brand-logo" src="../assets/images/logo-2.png" alt="Logo">
@@ -30,6 +41,15 @@
           <li class="nav-item"><a class="nav-link" href="units.html" data-i18n="nav.units">Units</a></li>
           <li class="nav-item"><a class="nav-link" href="events.html" data-i18n="nav.events">Events</a></li>
           <li class="nav-item"><a class="nav-link" href="contact.html" data-i18n="nav.contact">Contact</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-i18n="nav.more">More</a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="band.html" data-i18n="nav.band">Band</a></li>
+              <li><a class="dropdown-item" href="gallery.html" data-i18n="nav.gallery">Gallery</a></li>
+              <li><a class="dropdown-item" href="news.html" data-i18n="nav.news">News</a></li>
+              <li><a class="dropdown-item" href="join.html" data-i18n="nav.join">Join Us</a></li>
+            </ul>
+          </li>
         </ul>
         <div class="d-flex align-items-center flex-wrap ms-lg-3 navbar-actions">
           <button class="btn btn-theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">
@@ -40,11 +60,14 @@
             <a class="lang-link" data-lang="ar" href="#">AR</a>
             <a class="lang-link" data-lang="en" href="#">EN</a>
           </div>
-          <a href="login.html" class="btn btn-outline-light btn-login" data-auth-link data-login-href="login.html" data-dashboard-href="admin.html" data-i18n="nav.login">Login</a>
+          <a href="../login.html" class="btn btn-outline-light btn-login" data-auth-link data-login-href="../login.html" data-dashboard-href="../admin.html" data-i18n="nav.login">Login</a>
+          <a href="contact.html#support" class="btn btn-gold text-uppercase btn-support" data-i18n="nav.support">Support a project</a>
         </div>
       </div>
     </div>
   </nav>
+
+
 
   <main class="py-5 bg-light-grey" style="min-height: 100vh; display: flex; align-items: center;">
     <div class="container" style="max-width: 520px;">
@@ -93,7 +116,7 @@
 
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
   <script src="../assets/vendor/bootstrap/bootstrap.bundle.min.js?v=20251117d"></script>
-  <script src="../assets/js/main.js?v=20251207b"></script>
+  <script src="../assets/js/main.js?v=20240206a"></script>
   <script src="../assets/js/auth.js?v=20251117d"></script>
 </body>
 </html>

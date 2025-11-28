@@ -21,6 +21,11 @@
       'nav.dashboard': 'Dashboard',
       'nav.more': 'More',
       'nav.theme': 'Dark Mode',
+      'nav.support': 'Support a project',
+
+      'announcement.tag': 'Update',
+      'announcement.text': 'Community Service Day this Saturday, 9:00 AM – Bab Touma.',
+      'announcement.cta': 'See details',
 
       'footer.name': 'St. Ephrem Patriarchal Syriac Scouts – Damascus',
       'footer.tagline': 'A church-based scout troop fostering faith, leadership, and service.',
@@ -31,6 +36,14 @@
       'home.hero.scroll': 'Learn more',
       'home.hero.about': 'About the Troop',
       'home.hero.join': 'Join Us',
+      'home.hero.secondary': 'Explore our programs',
+      'home.hero.description': 'Generations of Syriac youth growing through prayer, outdoor skills, music, and service in Damascus.',
+      'home.hero.pill1': 'Since 1965',
+      'home.hero.pill2': 'Bab Touma · Damascus',
+      'home.hero.stat1': 'Youth mentored',
+      'home.hero.stat2': 'Active units',
+      'home.hero.stat3': 'Service hours yearly',
+      'home.hero.media': 'White Helmets mentors guide our rovers through emergency response drills.',
       'home.who.title': 'Who We Are',
       'home.who.body': 'We are a church-based Syriac Orthodox scout troop serving youth and families in Damascus. Our community fosters faith, character, and brotherhood through scouting traditions, service, and joyful witness.',
       'home.mission.title': 'Our Mission',
@@ -254,6 +267,11 @@
       'nav.dashboard': 'لوحة التحكم',
       'nav.more': 'المزيد',
       'nav.theme': 'الوضع الداكن',
+      'nav.support': 'ادعم مبادرة',
+
+      'announcement.tag': 'تنبيه',
+      'announcement.text': 'يوم خدمة المجتمع هذا السبت الساعة 9:00 صباحًا في باب توما.',
+      'announcement.cta': 'اطلع على التفاصيل',
 
       'footer.name': 'فوج مار أفرام السرياني البطريركي – دمشق',
       'footer.tagline': 'فوج كشفي كنسي يعزّز الإيمان والقيادة والخدمة.',
@@ -264,6 +282,14 @@
       'home.hero.scroll': 'اكتشف المزيد',
       'home.hero.about': 'نبذة عن الفوج',
       'home.hero.join': 'انضم إلينا',
+      'home.hero.secondary': 'استكشف برامجنا',
+      'home.hero.description': 'أجيال من الشبيبة السريانية ينمون بالصلاة والمهارات الكشفية والموسيقى والخدمة في دمشق.',
+      'home.hero.pill1': 'منذ 1965',
+      'home.hero.pill2': 'باب توما · دمشق',
+      'home.hero.stat1': 'شابات وشبان رافقناهم',
+      'home.hero.stat2': 'وحدات ناشطة',
+      'home.hero.stat3': 'ساعات خدمة سنوية',
+      'home.hero.media': 'يدرب الدفاع المدني السوري (الخوذ البيضاء) جوالتنا على الاستجابة للطوارئ.',
       'home.who.title': 'من نحن',
       'home.who.body': 'نحن فوج كشفي تابع للكنيسة السريانية الأرثوذكسية نخدم الشبيبة والعائلات في دمشق. نسعى إلى تنمية الإيمان وبناء الشخصية وروح الأخوّة عبر تقاليد الكشفية والخدمة والشهادة الفَرِحة.',
       'home.mission.title': 'رسالتنا',
@@ -961,6 +987,17 @@
     });
   };
 
+  const initNavState = () => {
+    const nav = document.querySelector('[data-nav]');
+    if (!nav) return;
+    const handle = () => {
+      const scrolled = window.scrollY > 30;
+      document.body.classList.toggle('navbar-scrolled', scrolled);
+    };
+    handle();
+    window.addEventListener('scroll', handle, { passive: true });
+  };
+
   // Apply language immediately to avoid flash of default text
   enforceStoredLangPreference();
   const initialLang = getLang();
@@ -977,6 +1014,7 @@
     applyLangLinks();
     updateAuthLinks();
     initNewsInlineEditor();
+    initNavState();
     // Language toggle
     document.querySelectorAll('.lang-toggle [data-lang]')?.forEach(btn => {
       btn.addEventListener('click', (e) => {

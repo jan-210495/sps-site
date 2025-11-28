@@ -24,11 +24,22 @@
   <link rel="stylesheet" href="assets/vendor/bootstrap/bootstrap.min.css?v=20251117d">
   <link rel="icon" type="image/png" href="assets/images/logo-2.png">
   <link rel="preload" as="image" href="assets/images/logo-2.png" type="image/png">
-  <link rel="stylesheet" href="assets/css/style.css?v=20251117c">
+  <link rel="stylesheet" href="assets/css/style.css?v=20240206a">
   <script>(function(){const doc=document.documentElement;const lang=doc.getAttribute('data-default-lang')||'ar';doc.lang=lang;doc.dir=lang==='ar'?'rtl':'ltr';doc.classList.add('i18n-pending');})();</script>
 </head>
-<body data-page="gallery">
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+<body class="has-announcement" data-page="gallery">
+      <!-- Navbar -->
+  <div class="announcement-bar is-active" data-announcement role="status">
+    <div class="container d-flex flex-wrap align-items-center justify-content-between gap-3">
+      <div class="d-flex flex-wrap align-items-center gap-2 text-start">
+        <span class="announcement-pill" data-i18n="announcement.tag">Update</span>
+        <p class="mb-0" data-i18n="announcement.text">Community Service Day this Saturday, 9:00 AM – Bab Touma.</p>
+      </div>
+      <a class="btn btn-reset-ghost btn-sm text-uppercase fw-semibold" href="events.html" data-i18n="announcement.cta">See details</a>
+    </div>
+  </div>
+
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top glassy" data-nav>
     <div class="container">
       <a class="navbar-brand fw-semibold d-flex align-items-center gap-2" href="index.html">
         <img id="brandLogoImg" class="brand-logo" src="assets/images/logo-2.png" alt="Logo">
@@ -64,10 +75,13 @@
             <a class="lang-link" data-lang="en" href="#">EN</a>
           </div>
           <a href="login.html" class="btn btn-outline-light btn-login" data-auth-link data-login-href="login.html" data-dashboard-href="admin.html" data-i18n="nav.login">Login</a>
+          <a href="contact.html#support" class="btn btn-gold text-uppercase btn-support" data-i18n="nav.support">Support a project</a>
         </div>
       </div>
     </div>
   </nav>
+
+
 
 
   <header class="py-5 bg-light-grey text-center">
@@ -152,6 +166,6 @@
 
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
   <script src="assets/vendor/bootstrap/bootstrap.bundle.min.js?v=20251117d"></script>
-  <script src="assets/js/main.js?v=20251207b"></script>
+  <script src="assets/js/main.js?v=20240206a"></script>
 </body>
 </html>
