@@ -205,6 +205,38 @@
       'contact.validation.message': 'Please enter a message.',
       'contact.success': 'Thank you! We received your note.',
       'contact.error': 'Unable to send your message. Please try again.',
+      // Auth
+      'login.title': 'Media Portal Sign In',
+      'login.lead': 'Admins, leaders, and media team can sign in to manage news stories and featured images.',
+      'login.email': 'Email',
+      'login.password': 'Password',
+      'login.submit': 'Sign in',
+      'login.error': 'Invalid credentials. Please try again.',
+      'login.note': 'Access is limited to authorized roles: admin, leaders, media-admin.',
+      'login.validation.email': 'Please enter a valid email.',
+      'login.validation.password': 'Enter your password.',
+      'admin.title': 'Media & Admin Control Center',
+      'admin.subtitle': 'Edit news cards, update featured images, and publish announcements.',
+      'admin.logout': 'Log out',
+      'admin.refresh': 'Refresh',
+      'admin.reset': 'Reset',
+      'admin.login_required': 'Please sign in to continue.',
+      'admin.news.title': 'News Manager',
+      'admin.news.subtitle': 'Edit an existing card or publish a new post.',
+      'admin.news.form.title': 'Title',
+      'admin.news.form.date': 'Date',
+      'admin.news.form.body': 'Summary',
+      'admin.news.form.image': 'Card image',
+      'admin.news.form.imageHint': 'Select from the gallery or upload via the API.',
+      'admin.news.form.save': 'Save Post',
+      'admin.featured.title': 'Featured Imagery',
+      'admin.featured.subtitle': 'Update hero and gallery highlights.',
+      'admin.validation.title': 'Enter a title.',
+      'admin.validation.date': 'Select a date.',
+      'admin.validation.body': 'Write a short summary.',
+      'admin.inline.save': 'Save changes',
+      'admin.inline.cancel': 'Cancel',
+      'admin.edit': 'Edit',
       'forms.spam': 'Submission blocked. Please try again.',
     },
     ar: {
@@ -406,6 +438,38 @@
       'contact.validation.message': 'يرجى إدخال الرسالة.',
       'contact.success': 'شكرًا لكم! استلمنا رسالتكم.',
       'contact.error': 'تعذر إرسال الرسالة، يرجى المحاولة مجددًا.',
+      // Auth
+      'login.title': 'تسجيل دخول بوابة الإعلام',
+      'login.lead': 'يمكن للإدارة والقادة وفريق الإعلام تسجيل الدخول لإدارة الأخبار والصور المميزة.',
+      'login.email': 'البريد الإلكتروني',
+      'login.password': 'كلمة المرور',
+      'login.submit': 'تسجيل الدخول',
+      'login.error': 'بيانات الاعتماد غير صحيحة. حاول مجددًا.',
+      'login.note': 'الدخول محصور بالأدوار المخولة: الإدارة، القادة، مسؤولو الإعلام.',
+      'login.validation.email': 'يرجى إدخال بريد إلكتروني صالح.',
+      'login.validation.password': 'يرجى إدخال كلمة المرور.',
+      'admin.title': 'مركز التحكم الإعلامي والإداري',
+      'admin.subtitle': 'عدّل بطاقات الأخبار وحدث الصور المميزة وانشر الإعلانات.',
+      'admin.logout': 'تسجيل الخروج',
+      'admin.refresh': 'تحديث',
+      'admin.reset': 'مسح',
+      'admin.login_required': 'يرجى تسجيل الدخول للمتابعة.',
+      'admin.news.title': 'إدارة الأخبار',
+      'admin.news.subtitle': 'عدّل بطاقة موجودة أو أنشر خبراً جديداً.',
+      'admin.news.form.title': 'العنوان',
+      'admin.news.form.date': 'التاريخ',
+      'admin.news.form.body': 'الملخص',
+      'admin.news.form.image': 'صورة البطاقة',
+      'admin.news.form.imageHint': 'اختر من المعرض أو ارفع عبر الواجهة البرمجية.',
+      'admin.news.form.save': 'حفظ الخبر',
+      'admin.featured.title': 'الصور المميزة',
+      'admin.featured.subtitle': 'حدّث صور الواجهة والمعرض.',
+      'admin.validation.title': 'أدخل العنوان.',
+      'admin.validation.date': 'اختر تاريخًا.',
+      'admin.validation.body': 'أدخل ملخصًا.',
+      'admin.inline.save': 'حفظ التعديلات',
+      'admin.inline.cancel': 'إلغاء',
+      'admin.edit': 'تعديل',
       'forms.spam': 'تم حجب الطلب. يرجى المحاولة مجددًا خلال لحظات.',
     }
   };
@@ -788,129 +852,6 @@
     });
   };
 
-  // Apply language immediately to avoid flash of default text
-  enforceStoredLangPreference();
-  const initialLang = getLang();
-  applyI18n(initialLang);
-  updateAuthLinks();
-  document.documentElement.classList.remove('i18n-pending');
-
-  document.addEventListener('DOMContentLoaded', () => {
-    setActiveNav();
-    initJoinForm();
-    initContactForm();
-    initGalleryFilters();
-    initLogoSwap();
-    applyLangLinks();
-    updateAuthLinks();
-    initNewsInlineEditor();
-    // Language toggle
-    document.querySelectorAll('.lang-toggle [data-lang]')?.forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        const lang = btn.getAttribute('data-lang');
-        setStoredLang(lang);
-        goToLang(lang);
-      });
-    });
-    // Hero scroll cue
-    const cue = document.querySelector('.scroll-cue');
-    if (cue) {
-      cue.addEventListener('click', () => {
-        const section = document.querySelector('main, section, .page, .hero + *');
-        if (section && typeof section.scrollIntoView === 'function') {
-          section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-    }
-
-    // Theme toggle
-    applyTheme(getTheme());
-    const themeToggle = document.getElementById('themeToggle');
-    if (themeToggle) {
-      themeToggle.addEventListener('click', () => {
-        const current = document.documentElement.getAttribute('data-theme') || 'light';
-        const theme = current === 'dark' ? 'light' : 'dark';
-        localStorage.setItem('theme', theme);
-        applyTheme(theme);
-      });
-    }
-  });
-  window.addEventListener('storage', (event) => {
-    if (event.key === AUTH_STORAGE_KEY) {
-      updateAuthLinks();
-      initNewsInlineEditor();
-    }
-  });
-  window.addEventListener('sps-auth-update', () => {
-    updateAuthLinks();
-    initNewsInlineEditor();
-  });
-})();
-      // Auth
-      'login.title': 'Media Portal Sign In',
-      'login.lead': 'Admins, leaders, and media team can sign in to manage news stories and featured images.',
-      'login.email': 'Email',
-      'login.password': 'Password',
-      'login.submit': 'Sign in',
-      'login.error': 'Invalid credentials. Please try again.',
-      'login.note': 'Access is limited to authorized roles: admin, leaders, media-admin.',
-      'login.validation.email': 'Please enter a valid email.',
-      'login.validation.password': 'Enter your password.',
-      'admin.title': 'Media & Admin Control Center',
-      'admin.subtitle': 'Edit news cards, update featured images, and publish announcements.',
-      'admin.logout': 'Log out',
-      'admin.refresh': 'Refresh',
-      'admin.reset': 'Reset',
-      'admin.login_required': 'Please sign in to continue.',
-      'admin.news.title': 'News Manager',
-      'admin.news.subtitle': 'Edit an existing card or publish a new post.',
-      'admin.news.form.title': 'Title',
-      'admin.news.form.date': 'Date',
-      'admin.news.form.body': 'Summary',
-      'admin.news.form.image': 'Card image',
-      'admin.news.form.imageHint': 'Select from the gallery or upload via the API.',
-      'admin.news.form.save': 'Save Post',
-      'admin.featured.title': 'Featured Imagery',
-      'admin.featured.subtitle': 'Update hero and gallery highlights.',
-      'admin.validation.title': 'Enter a title.',
-      'admin.validation.date': 'Select a date.',
-      'admin.validation.body': 'Write a short summary.',
-      'admin.inline.save': 'Save changes',
-      'admin.inline.cancel': 'Cancel',
-      'admin.edit': 'Edit',
-      // Auth
-      'login.title': 'تسجيل دخول بوابة الإعلام',
-      'login.lead': 'يمكن للإدارة والقادة وفريق الإعلام تسجيل الدخول لإدارة الأخبار والصور المميزة.',
-      'login.email': 'البريد الإلكتروني',
-      'login.password': 'كلمة المرور',
-      'login.submit': 'تسجيل الدخول',
-      'login.error': 'بيانات الاعتماد غير صحيحة. حاول مجددًا.',
-      'login.note': 'الدخول محصور بالأدوار المخولة: الإدارة، القادة، مسؤولو الإعلام.',
-      'login.validation.email': 'يرجى إدخال بريد إلكتروني صالح.',
-      'login.validation.password': 'يرجى إدخال كلمة المرور.',
-      'admin.title': 'مركز التحكم الإعلامي والإداري',
-      'admin.subtitle': 'عدّل بطاقات الأخبار وحدث الصور المميزة وانشر الإعلانات.',
-      'admin.logout': 'تسجيل الخروج',
-      'admin.refresh': 'تحديث',
-      'admin.reset': 'مسح',
-      'admin.login_required': 'يرجى تسجيل الدخول للمتابعة.',
-      'admin.news.title': 'إدارة الأخبار',
-      'admin.news.subtitle': 'عدّل بطاقة موجودة أو أنشر خبراً جديداً.',
-      'admin.news.form.title': 'العنوان',
-      'admin.news.form.date': 'التاريخ',
-      'admin.news.form.body': 'الملخص',
-      'admin.news.form.image': 'صورة البطاقة',
-      'admin.news.form.imageHint': 'اختر من المعرض أو ارفع عبر الواجهة البرمجية.',
-      'admin.news.form.save': 'حفظ الخبر',
-      'admin.featured.title': 'الصور المميزة',
-      'admin.featured.subtitle': 'حدّث صور الواجهة والمعرض.',
-      'admin.validation.title': 'أدخل العنوان.',
-      'admin.validation.date': 'اختر تاريخًا.',
-      'admin.validation.body': 'أدخل ملخصًا.',
-      'admin.inline.save': 'حفظ التعديلات',
-      'admin.inline.cancel': 'إلغاء',
-      'admin.edit': 'تعديل',
   const updateAuthLinks = () => {
     const link = document.querySelector('[data-auth-link]');
     if (!link) return;
@@ -1011,3 +952,63 @@
       });
     });
   };
+
+  // Apply language immediately to avoid flash of default text
+  enforceStoredLangPreference();
+  const initialLang = getLang();
+  applyI18n(initialLang);
+  updateAuthLinks();
+  document.documentElement.classList.remove('i18n-pending');
+
+  document.addEventListener('DOMContentLoaded', () => {
+    setActiveNav();
+    initJoinForm();
+    initContactForm();
+    initGalleryFilters();
+    initLogoSwap();
+    applyLangLinks();
+    updateAuthLinks();
+    initNewsInlineEditor();
+    // Language toggle
+    document.querySelectorAll('.lang-toggle [data-lang]')?.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const lang = btn.getAttribute('data-lang');
+        setStoredLang(lang);
+        goToLang(lang);
+      });
+    });
+    // Hero scroll cue
+    const cue = document.querySelector('.scroll-cue');
+    if (cue) {
+      cue.addEventListener('click', () => {
+        const section = document.querySelector('main, section, .page, .hero + *');
+        if (section && typeof section.scrollIntoView === 'function') {
+          section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    }
+
+    // Theme toggle
+    applyTheme(getTheme());
+    const themeToggle = document.getElementById('themeToggle');
+    if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+        const current = document.documentElement.getAttribute('data-theme') || 'light';
+        const theme = current === 'dark' ? 'light' : 'dark';
+        localStorage.setItem('theme', theme);
+        applyTheme(theme);
+      });
+    }
+  });
+  window.addEventListener('storage', (event) => {
+    if (event.key === AUTH_STORAGE_KEY) {
+      updateAuthLinks();
+      initNewsInlineEditor();
+    }
+  });
+  window.addEventListener('sps-auth-update', () => {
+    updateAuthLinks();
+    initNewsInlineEditor();
+  });
+})();
