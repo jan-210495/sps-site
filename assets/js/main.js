@@ -788,6 +788,7 @@
       'forms.spam': 'تم حجب الطلب. يرجى المحاولة مجددًا خلال لحظات.',
     }
   };
+  const ANNOUNCEMENT_STORAGE_KEY = 'announcement-dismissed';
 
   const titles = {
     home: {
@@ -1298,6 +1299,31 @@
     if (initial) activate(initial);
   };
 
+  const initAnnouncementBar = () => {
+    const bar = document.querySelector('[data-announcement]');
+    if (!bar) return;
+    const closeBtn = bar.querySelector('[data-announcement-close]');
+    const doc = document.documentElement;
+    const hideBar = () => {
+      bar.classList.add('announcement-hidden');
+      document.body.classList.remove('has-announcement');
+      doc.classList.add('announcement-dismissed');
+    };
+    if (doc.classList.contains('announcement-dismissed')) {
+      hideBar();
+    }
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        hideBar();
+        try {
+          localStorage.setItem(ANNOUNCEMENT_STORAGE_KEY, 'true');
+        } catch (err) {
+          console.warn('Unable to persist announcement dismissal', err);
+        }
+      });
+    }
+  };
+
   const initRevealAnimations = () => {
     const items = document.querySelectorAll('[data-reveal]');
     if (!items.length) return;
@@ -1386,6 +1412,7 @@
     initNavState();
     initRevealAnimations();
     initCountUp();
+    initAnnouncementBar();
     // Language toggle
     document.querySelectorAll('.lang-toggle [data-lang]')?.forEach(btn => {
       btn.addEventListener('click', (e) => {

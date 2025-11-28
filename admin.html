@@ -12,7 +12,7 @@
   <link rel="preload" as="image" href="assets/images/logo-2.png" type="image/png">
   <link rel="stylesheet" href="assets/css/style.css?v=20240206a">
   <link rel="stylesheet" href="assets/css/admin.css?v=20251117d">
-  <script>(function(){const doc=document.documentElement;const lang=doc.getAttribute('data-default-lang')||'ar';doc.lang=lang;doc.dir=lang==='ar'?'rtl':'ltr';doc.classList.add('i18n-pending');})();</script>
+  <script>(function(){const doc=document.documentElement;const lang=doc.getAttribute('data-default-lang')||'ar';doc.lang=lang;doc.dir=lang==='ar'?'rtl':'ltr';doc.classList.add('i18n-pending');try{if(localStorage.getItem('announcement-dismissed')==='true'){doc.classList.add('announcement-dismissed');}}catch(e){}})();</script>
 </head>
 <body class="has-announcement" data-page="admin">
     <!-- Navbar -->
@@ -22,7 +22,10 @@
         <span class="announcement-pill" data-i18n="announcement.tag">Update</span>
         <p class="mb-0" data-i18n="announcement.text">Community Service Day this Saturday, 9:00 AM – Bab Touma.</p>
       </div>
-      <a class="btn btn-reset-ghost btn-sm text-uppercase fw-semibold" href="events.html" data-i18n="announcement.cta">See details</a>
+      <div class="d-flex align-items-center gap-2 announcement-actions">
+        <a class="btn btn-reset-ghost btn-sm text-uppercase fw-semibold" href="events.html" data-i18n="announcement.cta">See details</a>
+        <button class="announcement-close" type="button" aria-label="Dismiss announcement" data-announcement-close>&times;</button>
+      </div>
     </div>
   </div>
 

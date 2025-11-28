@@ -538,6 +538,10 @@
 }
 .story-card .eyebrow { color: var(--color-magenta-500); }
 .story-card h3 { font-size: 1.1rem; margin-bottom: .5rem; }
+.units-grid .card-img-top {
+  height: 220px;
+  object-fit: cover;
+}
 
 .mission-section .content-card {
   height: 100%;
@@ -749,6 +753,16 @@
   color: var(--color-accent);
 }
 
+@media (max-width: 575.98px) {
+  .unit-tab-buttons {
+    flex-direction: column;
+  }
+  .unit-tab-button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
 .band-hero {
   border-radius: var(--radius-lg);
   padding: var(--space-5);
@@ -804,10 +818,24 @@
   opacity: 0.45;
 }
 .cta-band > * { position: relative; z-index: 1; }
+.cta-band p,
+.cta-band .lead-small,
+.cta-band .badge-soft {
+  color: rgba(255,255,255,0.9);
+}
 .cta-band .cta-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+}
+.cta-band .btn-reset-ghost {
+  border-color: rgba(255,255,255,0.7);
+  color: #fff;
+}
+.cta-band .btn-reset-ghost:hover {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  border-color: rgba(255,255,255,0.85);
 }
 .badge-outline {
   display: inline-flex;

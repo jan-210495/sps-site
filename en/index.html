@@ -25,7 +25,7 @@
   <link rel="icon" type="image/png" href="../assets/images/logo-2.png">
   <link rel="preload" as="image" href="../assets/images/logo-2.png" type="image/png">
   <link rel="stylesheet" href="../assets/css/style.css?v=20240206a">
-  <script>(function(){const doc=document.documentElement;const lang=doc.getAttribute('data-default-lang')||'ar';doc.lang=lang;doc.dir=lang==='ar'?'rtl':'ltr';doc.classList.add('i18n-pending');})();</script>
+  <script>(function(){const doc=document.documentElement;const lang=doc.getAttribute('data-default-lang')||'ar';doc.lang=lang;doc.dir=lang==='ar'?'rtl':'ltr';doc.classList.add('i18n-pending');try{if(localStorage.getItem('announcement-dismissed')==='true'){doc.classList.add('announcement-dismissed');}}catch(e){}})();</script>
 </head>
 <body class="has-announcement" data-page="home" data-nav="transparent">
     <!-- Navbar -->
@@ -35,7 +35,10 @@
         <span class="announcement-pill" data-i18n="announcement.tag">Update</span>
         <p class="mb-0" data-i18n="announcement.text">Community Service Day this Saturday, 9:00 AM – Bab Touma.</p>
       </div>
-      <a class="btn btn-reset-ghost btn-sm text-uppercase fw-semibold" href="events.html" data-i18n="announcement.cta">See details</a>
+      <div class="d-flex align-items-center gap-2 announcement-actions">
+        <a class="btn btn-reset-ghost btn-sm text-uppercase fw-semibold" href="events.html" data-i18n="announcement.cta">See details</a>
+        <button class="announcement-close" type="button" aria-label="Dismiss announcement" data-announcement-close>&times;</button>
+      </div>
     </div>
   </div>
 
@@ -243,7 +246,7 @@
           <h2 class="section-title mb-3" data-i18n="home.units.title">Our Units</h2>
           <p class="lead-small mx-auto" style="max-width: 760px;" data-i18n="home.units.body">Each age group receives a tailored rhythm of prayer, outdoor adventure, and community service. Tap a unit to see how faith and skill-building come alive.</p>
         </div>
-        <div class="row g-4">
+        <div class="row g-4 units-grid">
           <div class="col-md-6 col-lg-4">
             <div class="card h-100">
               <img loading="lazy" src="../assets/images/beavers-horse-activity.jpg" class="card-img-top" alt="Beavers horse activity">

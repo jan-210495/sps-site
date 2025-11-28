@@ -147,6 +147,9 @@ html[dir="rtl"] .navbar .ms-lg-3 {
   display: none;
 }
 .announcement-bar.is-active { display: block; }
+.announcement-bar.announcement-hidden { display: none; }
+html.announcement-dismissed .announcement-bar { display: none; }
+html.announcement-dismissed body.has-announcement { --navbar-offset: var(--navbar-height); }
 .announcement-bar .announcement-pill {
   display: inline-flex;
   align-items: center;
@@ -166,6 +169,27 @@ html[dir="rtl"] .navbar .ms-lg-3 {
 .announcement-bar .btn:hover {
   background: #fff;
   color: var(--color-service-blue);
+}
+.announcement-actions { flex-wrap: nowrap; }
+.announcement-close {
+  border: none;
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 1rem;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background .2s ease, transform .2s ease;
+}
+.announcement-close:hover { background: rgba(255,255,255,0.3); transform: scale(1.05); }
+.announcement-close:focus-visible {
+  outline: 2px solid rgba(255,255,255,0.85);
+  outline-offset: 2px;
 }
 .has-announcement nav.navbar,
 .announcement-bar.is-active + nav.navbar {
@@ -291,6 +315,11 @@ html[dir="rtl"] .navbar .ms-lg-3 {
   }
   .hero .hero-actions {
     justify-content: center;
+    width: 100%;
+  }
+  .hero .hero-actions .btn {
+    width: 100%;
+    text-align: center;
   }
   .hero .hero-stats {
     justify-content: center;
@@ -307,7 +336,7 @@ html[dir="rtl"] .navbar .ms-lg-3 {
 
 /* Footer */
 .site-footer {
-  background: #1e1030;
+  background: linear-gradient(90deg, #512a74 0%, var(--color-primary) 100%);
   color: #fff;
   padding: var(--space-6) 0;
 }
@@ -386,4 +415,15 @@ body[data-page="home"] section.bg-light-grey .row.g-4 > .col-md-6.col-lg-4:nth-o
 @media (prefers-reduced-motion: reduce) {
   .card:hover { transform: none; }
   .hero .scroll-cue { animation: none; }
+}
+
+@media (max-width: 575.98px) {
+  .announcement-bar .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .announcement-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
 }
