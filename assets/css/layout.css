@@ -204,6 +204,9 @@ body[data-page="events"] .events-section {
 body[data-page="band"] .band-section {
   background: var(--color-bg);
 }
+body[data-page="news"] .news-section {
+  background: var(--color-bg);
+}
 .has-announcement nav.navbar,
 .announcement-bar.is-active + nav.navbar {
   top: var(--announcement-height);
