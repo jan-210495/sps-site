@@ -2,39 +2,46 @@
 
 > **Process reminder:** Make a dedicated git commit after every meaningful change to keep the history clean.
 
-## 1. Moodboard & Visual Direction
-- Gather references from scout.org plus recent humanitarian/nonprofit scout campaigns.
-- Define an updated palette (deep plum, warm neutrals, vivid action colors) and typography pairings for EN/AR families.
-- Collect photography and texture cues (fabric grain, diagonal accents, badges) to inform hero/section backgrounds.
+## 1. Moodboard & Visual Direction — **DONE**
+- Gathered references from scout.org plus recent humanitarian/nonprofit scout campaigns.
+- Defined an updated palette (deep plum, warm neutrals, vivid accents) and typography pairings for EN/AR families.
+- Collected photography + texture cues (fabric grain, diagonal accents, badges) to inform hero/section backgrounds.
 
-## 2. Design System Foundations
-- Expand tokens in `assets/css/style.css` for color scales, spacing, typography, elevations, and component states (light/dark).
-- Introduce utility classes for angles, overlays, texture layers, and RTL-friendly spacing helpers.
-- Split the stylesheet into logical partials (foundations, layout, components) to speed iteration while keeping the current build chain (plain HTML/CSS/JS).
+## 2. Design System Foundations — **DONE**
+- Expanded tokens in the split CSS partials for color scales, spacing, typography, elevations, component states, and gradients.
+- Introduced utility classes for angles, overlays, texture layers, RTL spacing, reveal animations, and count-up helpers.
+- Split the monolithic stylesheet into `foundations.css`, `components.css`, and `layout.css` so future edits stay modular.
 
-## 3. Global Navigation & Hero
-- Add an announcement/situational awareness bar above the navbar for urgent updates.
-- Convert the navbar into a transparent-on-top bar that solidifies with scroll; enhance hover/focus states and include a tertiary CTA (e.g., “Support a project”).
-- Replace the static hero in `index.html` with a full viewport experience: photo/video background, angled overlay shapes, badge stack, dual CTAs, and scroll cue animations similar to scout.org’s landing hero.
+## 3. Global Navigation & Hero — **DONE**
+- Added an announcement/situational bar with dismissal + persistence logic and kept the navbar solid with support CTA.
+- Built the full-viewport hero with gradient overlays, dual CTAs, stat badges, and responsive media treatment.
+- Tweaked palette (nav, hero headings, theme toggle alignment) to keep colors on-brand after user feedback.
 
-## 4. Story-Driven Homepage Sections
-- Rebuild “Who We Are,” mission, and units blocks as modular story bands with alternating imagery, iconography, and highlights.
-- Add an impact metrics row (youth served, volunteer hours, community projects) using animated counters.
-- Introduce a “Stories & Highlights” carousel mixing articles, testimonials, and photo essays; include CTA cards for joining, supporting, or attending events.
-- Use angled dividers, textured backdrops, and parallax assets to break the current flat stack of sections.
+## 4. Story-Driven Homepage Sections — **DONE**
+- Rebuilt “Who We Are,” mission, impact, units, highlights, gallery, and CTA bands with alternating imagery/gradients.
+- Added animated counters + reveal effects, curated gallery mosaic with filters, and CTA copy tuned for both languages.
+- Iterated on CTA gradients (now plum→lavender without gold) and button legibility per follow-up requests.
 
-## 5. Interior Pages Enhancements
-- **About:** Add a timeline/stepper for troop history, leadership spotlights with quotes, and a service-area mini map. Incorporate multimedia blocks (audio of hymns, badges).
-- **Units:** Transform unit cards into tabbed storytelling panels per program with badges, skill progressions, downloadable guides, and embedded mini galleries.
-- **Band & Events:** Provide rehearsal schedules, media snippets, and event sliders that mirror scout.org’s interactive program showcases.
+## 5. Interior Pages Enhancements — **DONE**
+- **About:** Implemented timeline, service coverage, updated copy, and ensured sections reuse neutral backgrounds.
+- **Units:** Created tabbed storytelling panels, tightened media sizing, and aligned volunteer CTA section styling.
+- **Band & Events:** Rebuilt hero/rehearsal/media bands, added event grids + timeline, and synced section backgrounds.
 
-## 6. Media, News, and Footer
-- Elevate `gallery.html` into a curated experience: mixed-aspect masonry, hover captions, and lightbox filtering with story summaries.
-- Redesign `news.html` around hero stories, featured carousels, tag chips, and shareable quote blocks; integrate upcoming events on the same page.
-- Refresh the footer with layered backgrounds, quick links, and contact/support CTAs; add social proof (partners, hashtags).
+## 6. Media, News, and Footer — **DONE**
+- Upgraded `gallery.html` to the curated mosaic with hover captions and filter buttons tied to new i18n strings.
+- Redesigned `news.html` around a hero story, compact news grid, and media-team CTA while matching home colors.
+- Refreshed the footer with the brand gradient, quick links, contact/support CTAs, and consistent background usage.
 
-## 7. Interaction & Localization Layer
-- Extend `assets/js/main.js` with IntersectionObserver reveals, parallax cues, counter animations, and localized date formatting so EN/AR experiences stay in sync.
-- Add per-section theme hooks for dark mode, ensuring gradients, text, and icons remain accessible.
-- Incorporate richer motion states (button micro-interactions, image hover tilt, gallery transitions) while respecting performance budgets.
+## 7. Interaction & Localization Layer — **DONE**
+- Extended `assets/js/main.js` with IntersectionObserver reveals, counter animations, announcement dismissal, and RTL-friendly gradients.
+- Hooked up nav state, unit tabs, and theme toggles so EN/AR experiences stay synchronized in light/dark modes.
+- Ensured CTA/button micro-interactions, gallery transitions, and announcement UX respect motion/user preferences.
 
+---
+
+## Change Log
+- **Hero/Nav Refresh (Commits `b8cf0e9`, `c388165`, etc.)** — Implemented the new hero, announcement bar, and modular CSS structure.
+- **Interior Pages Overhaul (`cddf476`, `0ee0efb`, `5d55f9c`)** — Rebuilt About, Units, Band, Events, gallery/news/footers, and added per-page backgrounds.
+- **Color & CTA Iterations (`49073f5`, `380b9e8`, `d6d6799`, `02ce408`)** — Reinstated legacy palette, polished gradients, theme toggle, and CTA typography.
+- **Announcement UX (`1432608`, `671b08f`)** — Added dismiss persistence, removed extra offset, and ensured navbar reclaims space.
+- **Section Background Cleanup (`e11f6e6`, `485d5fd`, `9546d1d`, `5d55f9c`, `5d9b059`, `97ac6b6`)** — Applied scoped classes (`about-section`, `units-section`, `band-section`, `events-section`, `news-section`) so only intended pages use neutral backgrounds while preserving home styling.
