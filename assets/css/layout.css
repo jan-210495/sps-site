@@ -309,23 +309,31 @@ html[dir="rtl"] .navbar .ms-lg-3 {
 }
 
 /* Footer */
-footer {
-  background: var(--color-burgundy);
-  color: var(--color-white);
+.site-footer {
+  background: #1e1030;
+  color: #fff;
+  padding: var(--space-6) 0;
 }
-footer a { color: var(--color-white); }
-footer a:hover { color: var(--color-gold); }
-.social-icon {
-  width: 24px;
-  height: 24px;
-  display: inline-block;
+.site-footer a { color: rgba(255,255,255,0.85); }
+.site-footer a:hover { color: var(--color-gold); }
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+  gap: var(--space-4);
 }
-.social-icon svg {
-  width: 24px;
-  height: 24px;
-  fill: var(--color-white);
+.footer-nav {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
 }
-.social-icon:hover svg { fill: var(--color-gold); }
+.footer-nav li { margin-bottom: .35rem; }
+.footer-nav li:last-child { margin-bottom: 0; }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.12);
+  padding-top: var(--space-3);
+  margin-top: var(--space-4);
+  color: rgba(255,255,255,0.75);
+}
 
 /* Page-specific tweaks */
 [data-theme="dark"] body[data-page="units"] .card p,

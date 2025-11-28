@@ -94,51 +94,90 @@
 
   <main class="py-5">
     <div class="container">
-      <div class="row g-4">
-        <div class="col-md-6">
-          <article class="card h-100 news-card" data-news-card data-news-id="news-1" data-news-title="Troop Launches Winter Drive" data-news-date="2025-11-30" data-news-body="We are collecting warm clothing and blankets for families in need across Damascus. Thank you for your generosity and support.">
-            <div class="card-body">
-              <button class="btn btn-sm btn-gold news-edit-btn d-none" type="button" data-edit-news-card="news-1" aria-label="Edit card" data-i18n="admin.edit">Edit</button>
-              <h2 class="h5 card-title" data-i18n="news.post1.title" data-news-title>Troop Launches Winter Drive</h2>
-              <p class="text-muted mb-2" data-news-date>Nov 30, 2025</p>
-              <p class="mb-3" data-i18n="news.post1.body" data-news-body>We are collecting warm clothing and blankets...</p>
-              <a href="#" class="stretched-link" data-i18n="news.readmore">Read more</a>
-            </div>
-          </article>
+      <section class="news-hero">
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-6 order-lg-2">
+            <figure>
+              <img loading="lazy" src="../assets/images/crowd-with-candles-good-friday.jpg" alt="Troop winter drive">
+            </figure>
+          </div>
+          <div class="col-lg-6 order-lg-1">
+            <p class="event-meta mb-2" data-i18n="news.post1.meta">Nov 30, 2025</p>
+            <h2 class="h3 mb-3" data-i18n="news.post1.title">Troop Launches Winter Drive</h2>
+            <p class="mb-3" data-i18n="news.post1.body">We are collecting warm clothing and blankets...</p>
+            <a href="#" class="btn btn-burgundy" data-i18n="news.readmore">Read more</a>
+          </div>
         </div>
-        <div class="col-md-6">
-          <article class="card h-100 news-card" data-news-card data-news-id="news-2" data-news-title="Band Welcomes New Members" data-news-date="2025-11-12" data-news-body="After a lively open day, the band is excited to welcome new musicians to our weekly rehearsals.">
-            <div class="card-body">
-              <button class="btn btn-sm btn-gold news-edit-btn d-none" type="button" data-edit-news-card="news-2" aria-label="Edit card" data-i18n="admin.edit">Edit</button>
-              <h2 class="h5 card-title" data-i18n="news.post2.title" data-news-title>Band Welcomes New Members</h2>
-              <p class="text-muted mb-2" data-news-date>Nov 12, 2025</p>
-              <p class="mb-3" data-i18n="news.post2.body" data-news-body>After a lively open day...</p>
-              <a href="#" class="stretched-link" data-i18n="news.readmore">Read more</a>
-            </div>
-          </article>
+      </section>
+
+      <section class="news-grid mb-5">
+        <article class="news-card-simple">
+          <p class="event-meta mb-1" data-i18n="news.post2.meta">Nov 12, 2025</p>
+          <h3 class="h5" data-i18n="news.post2.title">Band Welcomes New Members</h3>
+          <p data-i18n="news.post2.body">After a lively open day...</p>
+          <a class="btn-link-arrow" href="#" data-i18n="news.readmore">Read more <svg viewBox="0 0 24 24"><path fill="currentColor" d="M5 11h11.17l-4.58-4.59L13 5l7 7-7 7-1.41-1.41L16.17 13H5z"/></svg></a>
+        </article>
+        <article class="news-card-simple">
+          <p class="event-meta mb-1" data-i18n="news.post3.meta">Oct 21, 2025</p>
+          <h3 class="h5" data-i18n="news.post3.title">Guide Unit Craft Workshop</h3>
+          <p data-i18n="news.post3.body">The Guides spent the afternoon crafting gifts...</p>
+          <a class="btn-link-arrow" href="#" data-i18n="news.readmore">Read more <svg viewBox="0 0 24 24"><path fill="currentColor" d="M5 11h11.17l-4.58-4.59L13 5l7 7-7 7-1.41-1.41L16.17 13H5z"/></svg></a>
+        </article>
+        <article class="news-card-simple">
+          <p class="event-meta mb-1" data-i18n="news.post4.meta">Sep 5, 2025</p>
+          <h3 class="h5" data-i18n="news.post4.title">White Helmets safety training</h3>
+          <p data-i18n="news.post4.body">Beavers, Cubs, and parents learned family-ready emergency tips inside our courtyard.</p>
+          <a class="btn-link-arrow" href="#" data-i18n="news.readmore">Read more <svg viewBox="0 0 24 24"><path fill="currentColor" d="M5 11h11.17l-4.58-4.59L13 5l7 7-7 7-1.41-1.41L16.17 13H5z"/></svg></a>
+        </article>
+      </section>
+
+      <section class="content-card warm shadow-sm text-center text-md-start">
+        <div class="row g-4 align-items-center">
+          <div class="col-md-8">
+            <p class="mb-2" data-i18n="news.cta.title">Share a story or invite coverage</p>
+            <p class="mb-0" data-i18n="news.cta.body">Send photos, testimonies, or collaboration ideas to our media team so we can celebrate Damascus together.</p>
+          </div>
+          <div class="col-md-4 text-md-end">
+            <a class="btn btn-gold" href="contact.html#support" data-i18n="news.cta.button">Contact media team</a>
+          </div>
         </div>
-        <div class="col-md-6">
-          <article class="card h-100 news-card" data-news-card data-news-id="news-3" data-news-title="Guide Unit Craft Workshop" data-news-date="2025-10-21" data-news-body="The Guides spent the afternoon crafting gifts and cards for parish seniors, sharing joy and creativity.">
-            <div class="card-body">
-              <button class="btn btn-sm btn-gold news-edit-btn d-none" type="button" data-edit-news-card="news-3" aria-label="Edit card" data-i18n="admin.edit">Edit</button>
-              <h2 class="h5 card-title" data-i18n="news.post3.title" data-news-title>Guide Unit Craft Workshop</h2>
-              <p class="text-muted mb-2" data-news-date>Oct 21, 2025</p>
-              <p class="mb-3" data-i18n="news.post3.body" data-news-body>The Guides spent the afternoon crafting gifts...</p>
-              <a href="#" class="stretched-link" data-i18n="news.readmore">Read more</a>
-            </div>
-          </article>
-        </div>
-      </div>
+      </section>
     </div>
   </main>
 
-  <footer class="pt-5 pb-4 mt-4">
+    <footer class="site-footer mt-4">
     <div class="container">
-      <div class="row g-3 align-items-center">
-        <div class="col-12 text-center text-lg-start">
-          <p class="mb-1" data-i18n="footer.name">St. Ephrem Patriarchal Syriac Scouts – Damascus</p>
-          <small class="text-secondary">© <span id="year"></span> St. Ephrem Scouts. All rights reserved.</small>
+      <div class="footer-grid">
+        <div>
+          <p class="mb-1 fw-semibold" data-i18n="footer.name">St. Ephrem Patriarchal Syriac Scouts – Damascus</p>
+          <p class="text-white-75 mb-0" data-i18n="footer.tagline">A church-based scout troop fostering faith, leadership, and service.</p>
         </div>
+        <div>
+          <p class="eyebrow mb-2 text-uppercase" data-i18n="footer.links">Quick links</p>
+          <ul class="footer-nav">
+            <li><a href="about.html" data-i18n="nav.about">About</a></li>
+            <li><a href="units.html" data-i18n="nav.units">Units</a></li>
+            <li><a href="band.html" data-i18n="nav.band">Band</a></li>
+            <li><a href="events.html" data-i18n="nav.events">Events</a></li>
+            <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="eyebrow mb-2 text-uppercase" data-i18n="footer.connect">Connect</p>
+          <ul class="footer-nav">
+            <li><a href="mailto:info@sps-damascus.org" data-i18n="contact.email.value">info@sps-damascus.org</a></li>
+            <li><a href="tel:+963944555120" data-i18n="contact.phone.value">+963 944 555 120</a></li>
+            <li><a href="login.html" data-i18n="nav.login">Login</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="eyebrow mb-2 text-uppercase" data-i18n="footer.cta">Support</p>
+          <p class="text-white-75" data-i18n="footer.cta.body">Help fuel camps, instruments, and outreach for Damascus youth.</p>
+          <a class="btn btn-gold" href="contact.html#support" data-i18n="footer.cta.button">Support a project</a>
+        </div>
+      </div>
+      <div class="footer-bottom text-center text-lg-start">
+        <small>© <span id="year"></span> <span data-i18n="footer.name">St. Ephrem Patriarchal Syriac Scouts – Damascus</span></small>
       </div>
     </div>
   </footer>

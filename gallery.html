@@ -94,7 +94,7 @@
 
   <main class="py-5" data-gallery>
     <div class="container">
-      <div class="d-flex flex-wrap gap-2 mb-4">
+      <div class="gallery-controls">
         <button class="btn btn-sm btn-burgundy active" type="button" data-filter="all" data-i18n="gallery.all" aria-pressed="true">All</button>
         <button class="btn btn-sm btn-outline-secondary" type="button" data-filter="processions" data-i18n="gallery.processions" aria-pressed="false">Processions</button>
         <button class="btn btn-sm btn-outline-secondary" type="button" data-filter="camps" data-i18n="gallery.camps" aria-pressed="false">Camps</button>
@@ -102,64 +102,68 @@
         <button class="btn btn-sm btn-outline-secondary" type="button" data-filter="meetings" data-i18n="gallery.meetings" aria-pressed="false">Meetings</button>
       </div>
 
-      <div class="gallery-grid">
-        <img loading="lazy" class="gallery-item" data-category="meetings" src="assets/images/all-scouts-59-anniversary.jpg" alt="Group photo for the 59th anniversary">
-        <img loading="lazy" class="gallery-item" data-category="meetings" src="assets/images/woodbadge-ceremony-1.jpg" alt="Wood Badge ceremony moment">
-        <img loading="lazy" class="gallery-item" data-category="meetings" src="assets/images/anniversary-58-ceremony.jpg" alt="58th anniversary celebration">
-        <img loading="lazy" class="gallery-item" data-category="meetings" src="assets/images/anniversary-57-ceremony.jpg" alt="57th anniversary celebration">
-        <img loading="lazy" class="gallery-item" data-category="camps" src="assets/images/rovers-rock-climbing-training-white-helmets.jpg" alt="Rovers learning rock climbing with White Helmets">
-        <img loading="lazy" class="gallery-item" data-category="camps" src="assets/images/scouts-rovers-leaders-white-helmets-salute.jpg" alt="Scouts, rovers, leaders and White Helmets salute together">
-        <img loading="lazy" class="gallery-item" data-category="meetings" src="assets/images/rovers-becoming-leaders-salute.jpg" alt="Rovers becoming leaders and saluting">
-        <img loading="lazy" class="gallery-item" data-category="camps" src="assets/images/scouts-morning-routine-summer-camp.jpg" alt="Scouts morning routine at camp">
-        <img loading="lazy" class="gallery-item" data-category="camps" src="assets/images/rovers-morning-routine-summer-camp.jpg" alt="Rovers morning routine at camp">
-        <img loading="lazy" class="gallery-item" data-category="camps" src="assets/images/cubs-learning-from-white-helmets.jpg" alt="Cubs learning from White Helmets">
-        <img loading="lazy" class="gallery-item" data-category="camps" src="assets/images/white-helmets-overseeing-cubs-tents.jpg" alt="White Helmets overseeing cubs pitching tents">
-        <img loading="lazy" class="gallery-item" data-category="camps" src="assets/images/white-helmets-teaching-cubs-rappelling.jpg" alt="White Helmets teaching cubs to rappel">
-        <img loading="lazy" class="gallery-item" data-category="camps" src="assets/images/morning-prayer-with-priest-camp-1.jpg" alt="Morning prayer with priest at camp">
-        <img loading="lazy" class="gallery-item" data-category="camps" src="assets/images/morning-prayer-with-priest-camp-2.jpg" alt="Morning prayer at camp">
-        <img loading="lazy" class="gallery-item" data-category="camps" src="assets/images/rovers-learning-fire-safety-white-helmets.jpg" alt="Rovers learning fire safety techniques">
-        <img loading="lazy" class="gallery-item" data-category="camps" src="assets/images/rovers-learning-fire-extinguish-white-helmets.jpg" alt="Rovers practicing fire extinguishing">
-        <img loading="lazy" class="gallery-item" data-category="camps" src="assets/images/campfire-gathering-night.jpg" alt="Night campfire gathering">
-        <img loading="lazy" class="gallery-item" data-category="camps" src="assets/images/campsite-flags-display.jpg" alt="Flags displayed at campsite">
-        <img loading="lazy" class="gallery-item" data-category="camps" src="assets/images/scouts-learning-hiking-gear.jpg" alt="Scouts learning about hiking gear">
-        <img loading="lazy" class="gallery-item" data-category="camps" src="assets/images/pioneering-flag-structure.jpg" alt="Pioneering flag structure">
-        <img loading="lazy" class="gallery-item" data-category="meetings" src="assets/images/visit-from-saydet-al-beshara-scouts.jpg" alt="Visit from Saydet Al Beshara scouts">
-        <img loading="lazy" class="gallery-item" data-category="meetings" src="assets/images/beavers-activity-group.jpg" alt="Beavers group activity">
-        <img loading="lazy" class="gallery-item" data-category="camps" src="assets/images/beavers-horse-activity.jpg" alt="Beavers horse activity">
-        <img loading="lazy" class="gallery-item" data-category="processions" src="assets/images/morning-prayer-with-patriarch-ignatius.jpg" alt="Morning prayer with Patriarch Ignatius">
-        <img loading="lazy" class="gallery-item" data-category="meetings" src="assets/images/cubs-home-cinema-activity-1.jpg" alt="Cubs home cinema activity">
-        <img loading="lazy" class="gallery-item" data-category="meetings" src="assets/images/cubs-home-cinema-activity-2.jpg" alt="Cubs home cinema activity follow-up">
-        <img loading="lazy" class="gallery-item" data-category="meetings" src="assets/images/rovers-circle-discussions.jpg" alt="Rovers circle discussions">
-        <img loading="lazy" class="gallery-item" data-category="processions" src="assets/images/emblem-easter-sunday-procession.jpg" alt="Emblem carried on Easter Sunday">
-        <img loading="lazy" class="gallery-item" data-category="processions" src="assets/images/scouts-easter-sunday-procession.jpg" alt="Scouts in Easter Sunday procession">
-        <img loading="lazy" class="gallery-item" data-category="band" src="assets/images/brass-band-easter-sunday.jpg" alt="Brass band playing on Easter Sunday">
-        <img loading="lazy" class="gallery-item" data-category="band" src="assets/images/percussion-band-easter-sunday.jpg" alt="Percussion band on Easter Sunday">
-        <img loading="lazy" class="gallery-item" data-category="processions" src="assets/images/scouts-marching-good-friday.jpg" alt="Scouts marching on Good Friday">
-        <img loading="lazy" class="gallery-item" data-category="processions" src="assets/images/scouts-marching-to-pioneer-work-good-friday.jpg" alt="Scouts marching to pioneer work on Good Friday">
-        <img loading="lazy" class="gallery-item" data-category="processions" src="assets/images/jesus-artwork-good-friday.jpg" alt="Good Friday artwork of Jesus">
-        <img loading="lazy" class="gallery-item" data-category="processions" src="assets/images/cubs-marching-good-friday.jpg" alt="Cubs marching on Good Friday">
-        <img loading="lazy" class="gallery-item" data-category="processions" src="assets/images/cross-pioneer-work-good-friday.jpg" alt="Cross pioneer work on Good Friday">
-        <img loading="lazy" class="gallery-item" data-category="processions" src="assets/images/pioneer-work-display.jpg" alt="Pioneer work display">
-        <img loading="lazy" class="gallery-item" data-category="processions" src="assets/images/peace-fire-display-drone-good-friday.jpg" alt="Peace fire display from drone on Good Friday">
-        <img loading="lazy" class="gallery-item" data-category="processions" src="assets/images/fireworks-pioneer-work-good-friday.jpg" alt="Fireworks over pioneer work">
-        <img loading="lazy" class="gallery-item" data-category="processions" src="assets/images/crowd-with-candles-good-friday.jpg" alt="Crowd with candles on Good Friday">
-        <img loading="lazy" class="gallery-item" data-category="processions" src="assets/images/patriarch-ignatius-lighting-fire-good-friday.jpg" alt="Patriarch Ignatius lighting fire on Good Friday">
-        <img loading="lazy" class="gallery-item" data-category="processions" src="assets/images/patriarch-ignatius-address-good-friday.jpg" alt="Patriarch Ignatius addressing crowd on Good Friday">
-        <img loading="lazy" class="gallery-item" data-category="processions" src="assets/images/fire-show-good-friday-1.jpg" alt="Fire show by leaders and rovers">
-        <img loading="lazy" class="gallery-item" data-category="processions" src="assets/images/fire-show-good-friday-2.jpg" alt="Fire show display at night">
-        <img loading="lazy" class="gallery-item" data-category="camps" src="assets/images/rover-leader-training-camp-group.jpg" alt="Rover-leader training camp group">
-        <img loading="lazy" class="gallery-item" data-category="camps" src="assets/images/rover-leader-training-camp-morning.jpg" alt="Morning routine at rover-leader training camp">
+      <div class="gallery-mosaic">
+        <figure class="gallery-item span-2" data-category="processions">
+          <img loading="lazy" src="assets/images/peace-fire-display-drone-good-friday.jpg" alt="Peace fire aerial view">
+          <figcaption data-i18n="gallery.featured1.caption">Good Friday fire tableau</figcaption>
+        </figure>
+        <figure class="gallery-item" data-category="processions">
+          <img loading="lazy" src="assets/images/scouts-marching-good-friday.jpg" alt="Scouts marching on Good Friday">
+          <figcaption data-i18n="gallery.featured2.caption">Scouts marching on Good Friday</figcaption>
+        </figure>
+        <figure class="gallery-item" data-category="camps">
+          <img loading="lazy" src="assets/images/cubs-learning-from-white-helmets.jpg" alt="Cubs learn from White Helmets">
+          <figcaption data-i18n="gallery.featured3.caption">Cubs learn first aid</figcaption>
+        </figure>
+        <figure class="gallery-item span-2" data-category="camps">
+          <img loading="lazy" src="assets/images/rovers-learning-fire-safety-white-helmets.jpg" alt="Rovers train with White Helmets">
+          <figcaption data-i18n="gallery.featured4.caption">Rovers train with White Helmets</figcaption>
+        </figure>
+        <figure class="gallery-item" data-category="band">
+          <img loading="lazy" src="assets/images/brass-band-easter-sunday.jpg" alt="Brass band on Easter">
+          <figcaption data-i18n="gallery.featured5.caption">Band animates Easter</figcaption>
+        </figure>
+        <figure class="gallery-item" data-category="meetings">
+          <img loading="lazy" src="assets/images/visit-from-saydet-al-beshara-scouts.jpg" alt="Partner troop visit">
+          <figcaption data-i18n="gallery.featured6.caption">Visit from partner troop</figcaption>
+        </figure>
       </div>
     </div>
   </main>
 
-  <footer class="pt-5 pb-4 mt-4">
+    <footer class="site-footer mt-4">
     <div class="container">
-      <div class="row g-3 align-items-center">
-        <div class="col-12 text-center text-lg-start">
-          <p class="mb-1" data-i18n="footer.name">St. Ephrem Patriarchal Syriac Scouts – Damascus</p>
-          <small class="text-secondary">© <span id="year"></span> St. Ephrem Scouts. All rights reserved.</small>
+      <div class="footer-grid">
+        <div>
+          <p class="mb-1 fw-semibold" data-i18n="footer.name">St. Ephrem Patriarchal Syriac Scouts – Damascus</p>
+          <p class="text-white-75 mb-0" data-i18n="footer.tagline">A church-based scout troop fostering faith, leadership, and service.</p>
         </div>
+        <div>
+          <p class="eyebrow mb-2 text-uppercase" data-i18n="footer.links">Quick links</p>
+          <ul class="footer-nav">
+            <li><a href="about.html" data-i18n="nav.about">About</a></li>
+            <li><a href="units.html" data-i18n="nav.units">Units</a></li>
+            <li><a href="band.html" data-i18n="nav.band">Band</a></li>
+            <li><a href="events.html" data-i18n="nav.events">Events</a></li>
+            <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="eyebrow mb-2 text-uppercase" data-i18n="footer.connect">Connect</p>
+          <ul class="footer-nav">
+            <li><a href="mailto:info@sps-damascus.org" data-i18n="contact.email.value">info@sps-damascus.org</a></li>
+            <li><a href="tel:+963944555120" data-i18n="contact.phone.value">+963 944 555 120</a></li>
+            <li><a href="login.html" data-i18n="nav.login">Login</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="eyebrow mb-2 text-uppercase" data-i18n="footer.cta">Support</p>
+          <p class="text-white-75" data-i18n="footer.cta.body">Help fuel camps, instruments, and outreach for Damascus youth.</p>
+          <a class="btn btn-gold" href="contact.html#support" data-i18n="footer.cta.button">Support a project</a>
+        </div>
+      </div>
+      <div class="footer-bottom text-center text-lg-start">
+        <small>© <span id="year"></span> <span data-i18n="footer.name">St. Ephrem Patriarchal Syriac Scouts – Damascus</span></small>
       </div>
     </div>
   </footer>
