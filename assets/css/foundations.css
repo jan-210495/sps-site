@@ -162,7 +162,7 @@ img, picture { max-width: 100%; display: block; }
 section {
   position: relative;
   padding-block: var(--section-padding-y);
-  background-color: var(--color-surface);
+  background-color: transparent;
 }
 
 .surface {
