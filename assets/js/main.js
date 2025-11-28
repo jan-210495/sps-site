@@ -1298,6 +1298,63 @@
     if (initial) activate(initial);
   };
 
+  const initRevealAnimations = () => {
+    const items = document.querySelectorAll('[data-reveal]');
+    if (!items.length) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      items.forEach(el => el.classList.add('is-visible'));
+      return;
+    }
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    items.forEach(item => observer.observe(item));
+  };
+
+  const initCountUp = () => {
+    const items = document.querySelectorAll('[data-countup]');
+    if (!items.length) return;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const animate = (el) => {
+      const target = parseFloat(el.dataset.countup) || 0;
+      const suffix = el.dataset.countupSuffix || '';
+      if (prefersReducedMotion) {
+        el.textContent = `${target}${suffix}`;
+        return;
+      }
+      const start = 0;
+      const duration = 1200;
+      const startTime = performance.now();
+      const step = (now) => {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const value = Math.floor(start + progress * (target - start));
+        el.textContent = `${value}${suffix}`;
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        }
+      };
+      requestAnimationFrame(step);
+    };
+    if (prefersReducedMotion) {
+      items.forEach(animate);
+      return;
+    }
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animate(entry.target);
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.6 });
+    items.forEach(item => observer.observe(item));
+  };
+
   const initNavState = () => {
     const nav = document.querySelector('[data-nav]');
     if (!nav) return;
@@ -1327,6 +1384,8 @@
     initNewsInlineEditor();
     initUnitTabs();
     initNavState();
+    initRevealAnimations();
+    initCountUp();
     // Language toggle
     document.querySelectorAll('.lang-toggle [data-lang]')?.forEach(btn => {
       btn.addEventListener('click', (e) => {
