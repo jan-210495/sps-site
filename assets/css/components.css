@@ -818,10 +818,30 @@
   opacity: 0.45;
 }
 .cta-band > * { position: relative; z-index: 1; }
+.cta-band h2 {
+  color: #fff;
+  font-weight: 700;
+}
+.cta-band p,
+.cta-band .lead-small {
+  color: rgba(255,255,255,0.9);
+}
 .cta-band .cta-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+}
+.cta-band .btn-reset-ghost {
+  border-color: rgba(255,255,255,0.85);
+  color: #fff;
+}
+.cta-band .btn-reset-ghost:hover {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  border-color: rgba(255,255,255,1);
+}
+html[dir="rtl"] .cta-band {
+  background: linear-gradient(300deg, #512a74 0%, #67338e 55%, #b090d0 100%);
 }
 .badge-outline {
   display: inline-flex;
