@@ -201,6 +201,9 @@ body[data-page="units"] .units-section {
 body[data-page="events"] .events-section {
   background: var(--color-bg);
 }
+body[data-page="band"] .band-section {
+  background: var(--color-bg);
+}
 .has-announcement nav.navbar,
 .announcement-bar.is-active + nav.navbar {
   top: var(--announcement-height);
