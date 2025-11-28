@@ -91,7 +91,7 @@
   --gradient-sand: linear-gradient(135deg, #fffaf0 0%, #f4ebd6 100%);
   --gradient-card: linear-gradient(140deg, #ffffff 0%, #f4eefb 100%);
   --gradient-card-dark: linear-gradient(150deg, rgba(81,42,116,0.65) 0%, #1a1124 100%);
-  --gradient-cta: linear-gradient(120deg, #512a74 0%, #67338e 55%, #c7bb7f 100%);
+  --gradient-cta: linear-gradient(140deg, #f4eefb 0%, #ffffff 100%);
   --gradient-ribbon: linear-gradient(135deg, rgba(255,255,255,0.18), rgba(255,255,255,0));
 
   /* Layout helpers */
