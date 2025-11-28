@@ -191,6 +191,10 @@ html.announcement-dismissed body.has-announcement { --navbar-offset: var(--navba
   outline: 2px solid rgba(255,255,255,0.85);
   outline-offset: 2px;
 }
+
+body[data-page="about"] .about-section {
+  background: var(--color-bg);
+}
 .has-announcement nav.navbar,
 .announcement-bar.is-active + nav.navbar {
   top: var(--announcement-height);
