@@ -195,6 +195,10 @@ html.announcement-dismissed body.has-announcement { --navbar-offset: var(--navba
 .announcement-bar.is-active + nav.navbar {
   top: var(--announcement-height);
 }
+html.announcement-dismissed .announcement-bar + nav.navbar,
+html.announcement-dismissed body.has-announcement nav.navbar {
+  top: 0;
+}
 
 /* Hero */
 .hero {
