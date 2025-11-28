@@ -738,7 +738,7 @@
 .band-hero {
   border-radius: var(--radius-lg);
   padding: var(--space-5);
-  background: linear-gradient(135deg, rgba(69,33,96,0.95), rgba(166,54,110,0.85));
+  background: linear-gradient(135deg, rgba(79,43,115,0.95), rgba(103,51,142,0.85));
   color: #fff;
   overflow: hidden;
   position: relative;

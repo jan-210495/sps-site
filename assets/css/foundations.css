@@ -25,15 +25,15 @@
 
 :root {
   /* Extended brand palette */
-  --color-plum-900: #16081f;
-  --color-plum-800: #2e0f4a;
-  --color-plum-700: #4c1d76;
+  --color-plum-900: #1f1230;
+  --color-plum-800: #2b1942;
+  --color-plum-700: #4f2b73;
   --color-plum-600: #67338e;
   --color-plum-500: #7f4ba6;
   --color-plum-300: #b090d0;
   --color-magenta-500: #a6366e;
-  --color-magenta-300: #f278a7;
-  --color-sand-300: #e8d7b1;
+  --color-magenta-300: #d782b9;
+  --color-sand-300: #f2e8ce;
   --color-ochre-400: #c7a15a;
   --color-gold: #c7bb7f;
   --color-teal-500: #2e9ca1;
@@ -87,12 +87,12 @@
   --shadow-hard: 0 20px 40px rgba(0,0,0,0.25);
 
   /* Gradients & overlays */
-  --gradient-hero: linear-gradient(135deg, rgba(46,15,74,0.92) 0%, rgba(166,54,110,0.85) 55%, rgba(46,156,161,0.75) 100%);
+  --gradient-hero: linear-gradient(150deg, #512a74 0%, #67338e 60%, #44245d 100%);
   --gradient-sand: linear-gradient(135deg, #fffaf0 0%, #f4ebd6 100%);
   --gradient-card: linear-gradient(140deg, #ffffff 0%, #f4eefb 100%);
-  --gradient-card-dark: linear-gradient(150deg, rgba(103,51,142,0.55) 0%, #1a1124 100%);
-  --gradient-cta: linear-gradient(125deg, #512a74 0%, #a6366e 60%, #f2b05e 100%);
-  --gradient-ribbon: linear-gradient(135deg, rgba(255,255,255,0.14), rgba(255,255,255,0));
+  --gradient-card-dark: linear-gradient(150deg, rgba(81,42,116,0.65) 0%, #1a1124 100%);
+  --gradient-cta: linear-gradient(125deg, #4f2b73 0%, #67338e 55%, #8e7c33 100%);
+  --gradient-ribbon: linear-gradient(135deg, rgba(255,255,255,0.18), rgba(255,255,255,0));
 
   /* Layout helpers */
   --navbar-height: 78px;
