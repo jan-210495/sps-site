@@ -32,11 +32,14 @@
   --color-plum-500: #7f4ba6;
   --color-plum-300: #b090d0;
   --color-magenta-500: #a6366e;
+  --color-magenta-300: #f278a7;
   --color-sand-300: #e8d7b1;
   --color-ochre-400: #c7a15a;
   --color-gold: #c7bb7f;
   --color-teal-500: #2e9ca1;
   --color-service-blue: #3587d2;
+  --color-olive-400: #768b4f;
+  --color-amber-400: #f2b05e;
   --color-ink: #1c1a24;
   --color-white: #ffffff;
   --color-muted: #6e5b85;
@@ -88,6 +91,8 @@
   --gradient-sand: linear-gradient(135deg, #fffaf0 0%, #f4ebd6 100%);
   --gradient-card: linear-gradient(140deg, #ffffff 0%, #f4eefb 100%);
   --gradient-card-dark: linear-gradient(150deg, rgba(103,51,142,0.55) 0%, #1a1124 100%);
+  --gradient-cta: linear-gradient(125deg, #512a74 0%, #a6366e 60%, #f2b05e 100%);
+  --gradient-ribbon: linear-gradient(135deg, rgba(255,255,255,0.14), rgba(255,255,255,0));
 
   /* Layout helpers */
   --navbar-height: 78px;
@@ -172,7 +177,16 @@ section {
 .bg-light-grey { background: var(--color-bg); }
 .text-muted-soft { color: var(--color-muted); }
 .text-white-75 { color: rgba(255,255,255,0.75); }
+.text-accent { color: var(--color-accent); }
 .lead-small { font-size: 1.05rem; color: var(--color-muted); }
+
+.eyebrow {
+  font-size: .85rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  font-weight: 700;
+}
 
 .flow > * + * {
   margin-top: var(--flow-space, 1rem);
@@ -225,6 +239,30 @@ section {
   background-size: 40px 40px;
   opacity: 0.4;
   pointer-events: none;
+}
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.badge-soft {
+  display: inline-flex;
+  align-items: center;
+  gap: .25rem;
+  padding: .2rem .75rem;
+  border-radius: var(--radius-pill);
+  background: rgba(255,255,255,0.25);
+  border: 1px solid rgba(255,255,255,0.4);
+  font-size: .8rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #fff;
 }
 
 .shadow-low { box-shadow: var(--elevation-low); }
