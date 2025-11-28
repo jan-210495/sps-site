@@ -126,11 +126,31 @@
       // About
       'about.title': 'About Us',
       'about.lead': 'Learn our story, identity, and vision as a Syriac Orthodox scout troop serving Damascus.',
+      'about.story.eyebrow': 'Origins',
       'about.story.title': 'Our Story',
       'about.story.body': 'Founded to serve the youth of our parish in the heart of Damascus, our troop grew from a small circle of friends into a vibrant community. We blend scouting traditions—camps, hikes, skills—with parish life, liturgy, and service. Over the years, countless young people have discovered leadership, teamwork, and faith through our activities.',
       'about.identity.title': 'Spiritual Identity',
       'about.identity.body': 'We belong to the Syriac Orthodox Patriarchate and walk in the footsteps of St. Ephrem the Syrian—our patron and guide in faith and wisdom. Our spirituality is rooted in prayer, Scripture, and the sacramental life of the Church, inspiring us to serve with humility and joy.',
       'about.identity.quote': 'We are inspired by St. Ephrem the Syrian—poet of the Church and teacher of love and service.',
+      'about.timeline.title': 'Milestones',
+      'about.timeline.start.year': '1965',
+      'about.timeline.start.title': 'Founded in Old Damascus',
+      'about.timeline.start.body': 'Volunteers from St. George Cathedral formed the first patrols to accompany liturgies and support families rebuilding after turbulence.',
+      'about.timeline.expand.year': '1982',
+      'about.timeline.expand.title': 'Generations of leadership',
+      'about.timeline.expand.body': 'Guides and Rovers launched formation camps empowering young women and men to spearhead parish ministries.',
+      'about.timeline.rebuild.year': '2015',
+      'about.timeline.rebuild.title': 'Rebuilding after war',
+      'about.timeline.rebuild.body': 'Alongside the White Helmets, our troop doubled down on relief visits, trauma-healing circles, and community drives.',
+      'about.service.title': 'Where we serve',
+      'about.service.body': 'Bab Touma, Bab Sharqi, and Sayda Zainab welcome our patrols for catechesis, music, and social outreach every month.',
+      'about.service.metric1': '3 partner parishes',
+      'about.service.metric1.body': 'Weekly coordination meetings.',
+      'about.service.metric2': '12 schools visited',
+      'about.service.metric2.body': 'Safety workshops & choir tours.',
+      'about.service.metric3': '800 families',
+      'about.service.metric3.body': 'Care packages and visits yearly.',
+      'about.service.cta': 'Request a visit or collaboration',
       'about.mv.title': 'Mission & Vision',
       'about.mission': 'Mission',
       'about.vision': 'Vision',
@@ -168,15 +188,63 @@
       'units.activities': 'Activities:',
       'units.join': 'Join',
       'units.volunteer': 'Volunteer',
+      'units.detail.beavers.age': 'Ages 5–6',
+      'units.detail.beavers.focus': 'Wonder & welcome',
+      'units.detail.beavers.body': 'Faith-themed playtimes introduce the scout promise through songs, crafts, and games with parents nearby.',
+      'units.detail.beavers.point1': 'Gentle prayer moments with simple motions.',
+      'units.detail.beavers.point2': 'Nature walks to learn colors, seasons, and care.',
+      'units.detail.beavers.point3': 'Monthly family gatherings and badge celebrations.',
+      'units.detail.cubs.age': 'Ages 7–10',
+      'units.detail.cubs.focus': 'Teamwork & imagination',
+      'units.detail.cubs.body': 'Cubs discover stories of saints, survival basics, and community service through quests and themed meetings.',
+      'units.detail.cubs.point1': 'Sixers lead prayer corners and pledges.',
+      'units.detail.cubs.point2': 'STEM crafts and pioneering mini-builds.',
+      'units.detail.cubs.point3': 'Visits to elders, hospitals, and partner troops.',
+      'units.detail.scouts.age': 'Ages 11–14',
+      'units.detail.scouts.focus': 'Patrol leadership',
+      'units.detail.scouts.body': 'Patrols rotate through pioneering, first aid, and gospel service projects that culminate in weekend camps.',
+      'units.detail.scouts.point1': 'Quarterly camps with hiking and night prayers.',
+      'units.detail.scouts.point2': 'Service shifts at parish clinics and kitchens.',
+      'units.detail.scouts.point3': 'Merit-badge mentorship with Rovers.',
+      'units.detail.guides.age': 'Ages 11–14',
+      'units.detail.guides.focus': 'Sisterhood & creativity',
+      'units.detail.guides.body': 'Guides blend liturgical arts, service visits, and outdoor exploration tailored to empower young women.',
+      'units.detail.guides.point1': 'Choir leadership and liturgical dance.',
+      'units.detail.guides.point2': 'Creative workshops with local artisans.',
+      'units.detail.guides.point3': 'Mentorship circles on spirituality and vocation.',
+      'units.detail.rovers.age': 'Ages 18+',
+      'units.detail.rovers.focus': 'Mentorship & service',
+      'units.detail.rovers.body': 'Rovers drive relief operations, lead camps, and receive coaching to support careers and vocations.',
+      'units.detail.rovers.point1': 'Emergency response certifications.',
+      'units.detail.rovers.point2': 'Monthly outreach to seniors and refugees.',
+      'units.detail.rovers.point3': 'Coaching younger patrol leaders.',
+      'units.detail.band.age': 'Ages 12+',
+      'units.detail.band.focus': 'Music & liturgy',
+      'units.detail.band.body': 'Youth learn brass, percussion, and chant to animate parish feasts, civic processions, and relief fundraisers.',
+      'units.detail.band.point1': 'Sectionals led by alumni musicians.',
+      'units.detail.band.point2': 'Weekly theory & ear-training labs.',
+      'units.detail.band.point3': 'Joint appearances with partner choirs.',
 
       // Band
       'band.title': 'Band',
       'band.lead': 'Bringing joy to feasts, processions, and parish celebrations.',
+      'band.hero.eyebrow': 'Music ministry',
+      'band.hero.title': 'St. Ephrem Brass & Percussion',
+      'band.hero.body': 'Youth musicians animate every major feast, procession, and outreach event with disciplined marching, hymnody, and cultural pieces.',
+      'band.hero.stat1': '60+ active players',
+      'band.hero.stat2': '8 sections',
       'band.about.title': 'About the Band',
       'band.about.body': 'The troop’s brass band unites youth through music and discipline. Our ensemble typically includes trumpets, drums, cymbals, and other instruments. We rehearse regularly and support parish and community events.',
       'band.what.title': 'What We Do',
       'band.reh.title': 'Rehearsals',
       'band.reh.body': 'Weekly schedule (placeholder): Fridays 6:00–8:00 PM, Parish Music Room. New members are welcome to observe and try instruments.',
+      'band.values.point1': 'Palm Sunday, Holy Week, and Patriarchal visits.',
+      'band.values.point2': 'Christmas, Easter, and parish jubilees.',
+      'band.values.point3': 'City festivals, relief fundraisers, and ecumenical events.',
+      'band.schedule.title': 'Rehearsal rhythm',
+      'band.schedule.item1': 'Fridays 18:00–20:00 · Parish Music Room.',
+      'band.schedule.item2': 'Sectionals on Mondays for brass & percussion.',
+      'band.schedule.item3': 'Monthly liturgy prep with choir directors.',
       'band.join.title': 'Join the Band',
       'band.join.body': 'If you are interested in learning an instrument and serving with the band, we’d love to meet you.',
       'band.join.button': 'Apply to Join',
@@ -187,6 +255,17 @@
       'events.lead': 'Upcoming events and past highlights.',
       'events.upcoming': 'Upcoming',
       'events.past': 'Past Highlights',
+      'events.cta': 'Partner or host an event',
+      'events.featured.cta': 'View details',
+      'events.featured1.meta': 'Dec 10 · Bab Touma',
+      'events.featured2.meta': 'Dec 18 · Parish Hall',
+      'events.featured3.meta': 'Jan 7 · Music Room',
+      'events.timeline.title': 'Past highlights',
+      'events.timeline.item1.meta': 'Nov 2025',
+      'events.timeline.item2.meta': 'Nov 2025',
+      'events.timeline.item3.meta': 'Oct 2025',
+      'events.partners.title': 'Host the troop',
+      'events.partners.body': 'Parishes, schools, and civic groups invite our patrols for safety workshops, music, and service learning. Share your idea and we’ll tailor a program.',
 
       // Gallery
       'gallery.title': 'Gallery',
@@ -418,11 +497,31 @@
       // About
       'about.title': 'نبذة عنا',
       'about.lead': 'تعرّفوا على قصتنا وهويتنا ورؤيتنا كفوج كشفي سرياني أرثوذكسي يخدم دمشق.',
+      'about.story.eyebrow': 'البدايات',
       'about.story.title': 'قصتنا',
       'about.story.body': 'تأسس فوجنا لخدمة شباب الرعية في قلب دمشق، ونما من حلقة صغيرة من الأصدقاء إلى جماعة حيّة. نمزج تقاليد الكشفية — المخيمات والرحلات والمهارات — مع حياة الرعية والليتورجيا والخدمة، فتعرف كثيرون عبر أنشطتنا القيادة والعمل الجماعي والإيمان.',
       'about.identity.title': 'هويتنا الروحية',
       'about.identity.body': 'ننتمي إلى البطريركية السريانية الأرثوذكسية، ونسير على خطى القديس مار أفرام السرياني — شفيعنا وملهمنا في الإيمان والحكمة. روحانيتنا متجذّرة في الصلاة والكتاب المقدس والحياة السرائرية في الكنيسة، فتدفعنا إلى الخدمة بتواضع وفرح.',
       'about.identity.quote': 'نستلهم روح القديس مار أفرام السرياني، شاعر الكنيسة ومعلم المحبة والخدمة.',
+      'about.timeline.title': 'محطات أساسية',
+      'about.timeline.start.year': '1965',
+      'about.timeline.start.title': 'انطلاقة في دمشق القديمة',
+      'about.timeline.start.body': 'متطوعون من كاتدرائية مار جرجس أسسوا أولى السرايا لمواكبة الليتورجيا ومساندة العائلات بعد الاضطرابات.',
+      'about.timeline.expand.year': '1982',
+      'about.timeline.expand.title': 'أجيال من القيادة',
+      'about.timeline.expand.body': 'أطلقت المرشدات والجوالة مخيمات تكوين متخصصة فمكّنت الشابات والشبان من قيادة خدمات الرعية.',
+      'about.timeline.rebuild.year': '2015',
+      'about.timeline.rebuild.title': 'نهوض بعد الحرب',
+      'about.timeline.rebuild.body': 'بالشراكة مع الخوذ البيضاء ضاعف الفوج زيارات الإغاثة ودوائر الدعم والمعونات.',
+      'about.service.title': 'مجال خدمتنا',
+      'about.service.body': 'باب توما وباب شرقي والسيدة زينب تستقبل سرايانا للصلاة والتعليم والخدمة كل شهر.',
+      'about.service.metric1': '3 رعايا شريكة',
+      'about.service.metric1.body': 'اجتماعات تنسيق أسبوعية.',
+      'about.service.metric2': '12 مدرسة نزورها',
+      'about.service.metric2.body': 'ورشات أمان وجولات تراتيل.',
+      'about.service.metric3': '800 عائلة',
+      'about.service.metric3.body': 'طرود وزيارات سنوية.',
+      'about.service.cta': 'اطلبوا زيارة أو تعاونًا',
       'about.mv.title': 'الرسالة والرؤية',
       'about.mission': 'الرسالة',
       'about.vision': 'الرؤية',
@@ -460,15 +559,63 @@
       'units.activities': 'الأنشطة:',
       'units.join': 'انضم',
       'units.volunteer': 'تطوّع',
+      'units.detail.beavers.age': 'أعمار 5–6',
+      'units.detail.beavers.focus': 'دهشة ودفء عائلي',
+      'units.detail.beavers.body': 'نقدّم لقاءات لعب إيمانية تعرّف الوعد الكشفي عبر الأناشيد والأشغال والقصص بمشاركة الأهل.',
+      'units.detail.beavers.point1': 'لحظات صلاة بسيطة مع حركات سهلة.',
+      'units.detail.beavers.point2': 'جولات في الطبيعة لتعلّم المواسم والحفاظ عليها.',
+      'units.detail.beavers.point3': 'لقاءات عائلية شهرية وتوزيع الشارات.',
+      'units.detail.cubs.age': 'أعمار 7–10',
+      'units.detail.cubs.focus': 'عمل جماعي وخيال',
+      'units.detail.cubs.body': 'يكتشف الأشبال قصص القديسين والأساسيات الكشفية والخدمة عبر مغامرات موضوعية.',
+      'units.detail.cubs.point1': 'قادة السداسيات يقودون صلاة الوعد.',
+      'units.detail.cubs.point2': 'أعمال حرفية ومشاريع رائدة صغيرة.',
+      'units.detail.cubs.point3': 'زيارات للمسنين والمستشفيات والفرق الصديقة.',
+      'units.detail.scouts.age': 'أعمار 11–14',
+      'units.detail.scouts.focus': 'قيادة الطلائع',
+      'units.detail.scouts.body': 'تتدرّب الطلائع على الريادة والإسعاف والخدمة الإنجيلية وتنطلق في مخيمات نهاية الأسبوع.',
+      'units.detail.scouts.point1': 'مخيمات ربع سنوية مع صلوات ليلية.',
+      'units.detail.scouts.point2': 'مناوبات خدمة في العيادات والمطابخ.',
+      'units.detail.scouts.point3': 'إرشاد في شارات الاستحقاق مع الجوالة.',
+      'units.detail.guides.age': 'أعمار 11–14',
+      'units.detail.guides.focus': 'أخوّة وإبداع',
+      'units.detail.guides.body': 'تدمج المرشدات الفنون الليتورجية والخدمة والاستكشاف الخارجي بطريقة تمكّن الشابات.',
+      'units.detail.guides.point1': 'قيادة الجوقات ورقص تعبيري ليتورجي.',
+      'units.detail.guides.point2': 'ورشات إبداعية مع حرفيين محليين.',
+      'units.detail.guides.point3': 'دوائر مرافقة حول الروحانية والرسالة.',
+      'units.detail.rovers.age': '18+ قيادة',
+      'units.detail.rovers.focus': 'خدمة وإرشاد',
+      'units.detail.rovers.body': 'الجوالة يقودون حملات الإغاثة والمخيمات ويتلقون مرافقة مهنية وروحية.',
+      'units.detail.rovers.point1': 'شهادات استجابة للطوارئ.',
+      'units.detail.rovers.point2': 'زيارات شهرية للمسنين واللاجئين.',
+      'units.detail.rovers.point3': 'تدريب قادة الطلائع الأصغر سنًا.',
+      'units.detail.band.age': 'أعمار 12 وما فوق',
+      'units.detail.band.focus': 'الموسيقى والليتورجيا',
+      'units.detail.band.body': 'يتعلّم الشباب آلات النفخ والإيقاع والتراتيل لإحياء الأعياد والمواكب والمبادرات.',
+      'units.detail.band.point1': 'تمارين مقطعية يقودها خرّيجون موسيقيون.',
+      'units.detail.band.point2': 'مختبرات نظرية وأذن موسيقية أسبوعية.',
+      'units.detail.band.point3': 'حفلات مشتركة مع جوقات صديقة.',
 
       // Band
       'band.title': 'الفرقة النحاسية',
       'band.lead': 'ننشر الفرح في الأعياد والزياحات واحتفالات الرعية.',
+      'band.hero.eyebrow': 'خدمة موسيقية',
+      'band.hero.title': 'الفرقة النحاسية والإيقاعية',
+      'band.hero.body': 'شبيبتنا يحيون كل عيد وزياحة ومبادرة خيرية بانضباط موسيقي وأناشيد تراثية.',
+      'band.hero.stat1': 'أكثر من 60 عازفًا',
+      'band.hero.stat2': '8 أقسام موسيقية',
       'band.about.title': 'عن الفرقة',
       'band.about.body': 'تجمع الفرقة النحاسية الشبيبة على الموسيقى والانضباط، وتضم عادةً أبواقًا وطبولًا وصنوجًا وغيرها. نتمرّن بانتظام ونخدم في مناسبات الرعية والمجتمع.',
       'band.what.title': 'ماذا نفعل',
       'band.reh.title': 'التمارين',
       'band.reh.body': 'البرنامج الأسبوعي (افتراضي): الجمعة 6:00–8:00 مساءً في غرفة الموسيقى. نرحّب بالمهتمين للحضور وتجربة الآلات.',
+      'band.values.point1': 'أسبوع الآلام وزيارات البطريرك.',
+      'band.values.point2': 'الميلاد والفصح ويوبيلات الرعية.',
+      'band.values.point3': 'مهرجانات المدينة وحملات الإغاثة.',
+      'band.schedule.title': 'إيقاع التمارين',
+      'band.schedule.item1': 'الجمعة 6:00–8:00 مساءً · قاعة الموسيقى.',
+      'band.schedule.item2': 'تمارين مقطعية يوم الإثنين للنفخ والإيقاع.',
+      'band.schedule.item3': 'إعداد ليتورجي شهري مع قادة الجوقات.',
       'band.join.title': 'انضم إلى الفرقة',
       'band.join.body': 'إن كنت مهتمًا بتعلّم آلة موسيقية وخدمة الرعية مع الفرقة، يسعدنا التعرّف عليك.',
       'band.join.button': 'قدّم طلب انضمام',
@@ -479,6 +626,17 @@
       'events.lead': 'الفعاليات القادمة وأبرز الأحداث السابقة.',
       'events.upcoming': 'القادمة',
       'events.past': 'أبرز الأحداث السابقة',
+      'events.cta': 'تعاون معنا أو استضف نشاطًا',
+      'events.featured.cta': 'اكتشف التفاصيل',
+      'events.featured1.meta': '10 كانون الأول · باب توما',
+      'events.featured2.meta': '18 كانون الأول · قاعة الرعية',
+      'events.featured3.meta': '7 كانون الثاني · غرفة الموسيقى',
+      'events.timeline.title': 'محطات ماضية',
+      'events.timeline.item1.meta': 'تشرين الثاني 2025',
+      'events.timeline.item2.meta': 'تشرين الثاني 2025',
+      'events.timeline.item3.meta': 'تشرين الأول 2025',
+      'events.partners.title': 'استضيفوا الفوج',
+      'events.partners.body': 'ترحّب بنا الرعايا والمدارس والهيئات المدنية لتقديم ورشات أمان، موسيقى، وخدمة تعليمية. حدّثونا عن فكرتكم لنصمّم برنامجًا مناسبًا.',
 
       // Gallery
       'gallery.title': 'المعرض',
@@ -1078,6 +1236,28 @@
     });
   };
 
+  const initUnitTabs = () => {
+    const container = document.querySelector('[data-unit-tabs]');
+    if (!container) return;
+    const buttons = container.querySelectorAll('[data-unit-tab]');
+    const panels = container.querySelectorAll('[data-unit-panel]');
+    const activate = (target) => {
+      buttons.forEach(btn => {
+        btn.classList.toggle('is-active', btn.dataset.unitTab === target);
+      });
+      panels.forEach(panel => {
+        panel.classList.toggle('is-active', panel.dataset.unitPanel === target);
+      });
+    };
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        activate(btn.dataset.unitTab);
+      });
+    });
+    const initial = container.querySelector('[data-unit-tab].is-active')?.dataset.unitTab || buttons[0]?.dataset.unitTab;
+    if (initial) activate(initial);
+  };
+
   const initNavState = () => {
     const nav = document.querySelector('[data-nav]');
     if (!nav) return;
@@ -1105,6 +1285,7 @@
     applyLangLinks();
     updateAuthLinks();
     initNewsInlineEditor();
+    initUnitTabs();
     initNavState();
     // Language toggle
     document.querySelectorAll('.lang-toggle [data-lang]')?.forEach(btn => {

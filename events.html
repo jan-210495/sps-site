@@ -95,72 +95,69 @@
   <main class="py-5">
     <div class="container">
       <section class="mb-5">
-        <h2 class="h4 section-title" data-i18n="events.upcoming">Upcoming</h2>
-        <div class="row g-4 mt-1">
-          <!-- Event cards -->
-          <div class="col-md-6 col-lg-4">
-            <div class="card h-100">
-              <img loading="lazy" src="assets/images/pioneering-flag-structure.jpg" class="card-img-top" alt="Pioneering project">
-              <div class="card-body">
-                <h5 class="card-title">Community Service Day</h5>
-                <p class="mb-1 text-muted">Dec 10, 2025 – Old Damascus</p>
-                <p class="card-text">Neighborhood clean-up and visits to seniors.</p>
-              </div>
-            </div>
+        <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+          <div>
+            <p class="eyebrow text-accent mb-2" data-i18n="events.upcoming">Upcoming</p>
+            <h2 class="section-title mb-0" data-i18n="events.title">Events</h2>
           </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="card h-100">
-              <img loading="lazy" src="assets/images/campfire-gathering-night.jpg" class="card-img-top" alt="Campfire prayer night">
-              <div class="card-body">
-                <h5 class="card-title">Advent Prayer Night</h5>
-                <p class="mb-1 text-muted">Dec 18, 2025 – Parish Hall</p>
-                <p class="card-text">Hymns and reflection before Christmas.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="card h-100">
-              <img loading="lazy" src="assets/images/brass-band-easter-sunday.jpg" class="card-img-top" alt="Band rehearsal">
-              <div class="card-body">
-                <h5 class="card-title">Band Open Day</h5>
-                <p class="mb-1 text-muted">Jan 7, 2026 – Music Room</p>
-                <p class="card-text">Try instruments and meet the team.</p>
-              </div>
-            </div>
-          </div>
+          <a href="contact.html#support" class="btn btn-reset-ghost" data-i18n="events.cta">Partner or host an event</a>
+        </div>
+        <div class="event-grid">
+          <article class="event-card">
+            <img loading="lazy" src="assets/images/pioneering-flag-structure.jpg" alt="Service day" class="img-fluid rounded mb-3">
+            <p class="event-meta mb-1" data-i18n="events.featured1.meta">Dec 10 · Bab Touma</p>
+            <h3 class="h5 mb-2" data-i18n="home.events.e1.title">Community Service Day</h3>
+            <p class="mb-3" data-i18n="home.events.e1.text">Join us in a neighborhood clean-up and visit to seniors.</p>
+            <a class="btn-link-arrow" href="news.html" data-i18n="events.featured.cta">View details <svg viewBox="0 0 24 24"><path fill="currentColor" d="M5 11h11.17l-4.58-4.59L13 5l7 7-7 7-1.41-1.41L16.17 13H5z"/></svg></a>
+          </article>
+          <article class="event-card">
+            <img loading="lazy" src="assets/images/campfire-gathering-night.jpg" alt="Prayer night" class="img-fluid rounded mb-3">
+            <p class="event-meta mb-1" data-i18n="events.featured2.meta">Dec 18 · Parish Hall</p>
+            <h3 class="h5 mb-2" data-i18n="home.events.e2.title">Advent Prayer Night</h3>
+            <p class="mb-3" data-i18n="home.events.e2.text">An evening of hymns and reflection as we prepare for Christmas.</p>
+            <a class="btn-link-arrow" href="news.html" data-i18n="events.featured.cta">View details <svg viewBox="0 0 24 24"><path fill="currentColor" d="M5 11h11.17l-4.58-4.59L13 5l7 7-7 7-1.41-1.41L16.17 13H5z"/></svg></a>
+          </article>
+          <article class="event-card">
+            <img loading="lazy" src="assets/images/brass-band-easter-sunday.jpg" alt="Band open day" class="img-fluid rounded mb-3">
+            <p class="event-meta mb-1" data-i18n="events.featured3.meta">Jan 7 · Music Room</p>
+            <h3 class="h5 mb-2" data-i18n="home.events.e3.title">Band Rehearsal Open Day</h3>
+            <p class="mb-3" data-i18n="home.events.e3.text">Come try instruments and meet the band team.</p>
+            <a class="btn-link-arrow" href="band.html" data-i18n="events.featured.cta">View details <svg viewBox="0 0 24 24"><path fill="currentColor" d="M5 11h11.17l-4.58-4.59L13 5l7 7-7 7-1.41-1.41L16.17 13H5z"/></svg></a>
+          </article>
         </div>
       </section>
 
       <section>
-        <h2 class="h4 section-title" data-i18n="events.past">Past Highlights</h2>
-        <div class="row g-4 mt-1">
-          <div class="col-md-6 col-lg-4">
-            <div class="card h-100">
-              <img loading="lazy" src="assets/images/scouts-easter-sunday-procession.jpg" class="card-img-top" alt="Easter procession">
-              <div class="card-body">
-                <h5 class="card-title">Palm Sunday Procession</h5>
-                <p class="mb-1 text-muted">April 2025</p>
-                <p class="card-text">A joyful march with the band and parish families.</p>
+        <div class="row g-4">
+          <div class="col-lg-6">
+            <div class="content-card h-100 shadow-sm">
+              <p class="eyebrow text-accent mb-2" data-i18n="events.timeline.title">Past highlights</p>
+              <div class="timeline">
+                <div class="timeline-item">
+                  <span class="timeline-year" data-i18n="events.timeline.item1.meta">Nov 2025</span>
+                  <h3 class="h5 mb-1" data-i18n="news.post1.title">Troop Launches Winter Drive</h3>
+                  <p class="mb-0" data-i18n="news.post1.body">We are collecting warm clothing and blankets...</p>
+                </div>
+                <div class="timeline-item">
+                  <span class="timeline-year" data-i18n="events.timeline.item2.meta">Nov 2025</span>
+                  <h3 class="h5 mb-1" data-i18n="news.post2.title">Band Welcomes New Members</h3>
+                  <p class="mb-0" data-i18n="news.post2.body">After a lively open day...</p>
+                </div>
+                <div class="timeline-item">
+                  <span class="timeline-year" data-i18n="events.timeline.item3.meta">Oct 2025</span>
+                  <h3 class="h5 mb-1" data-i18n="news.post3.title">Guide Unit Craft Workshop</h3>
+                  <p class="mb-0" data-i18n="news.post3.body">The Guides spent the afternoon crafting gifts...</p>
+                </div>
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="card h-100">
-              <img loading="lazy" src="assets/images/patriarch-ignatius-lighting-fire-good-friday.jpg" class="card-img-top" alt="Patriarch lighting fire">
-              <div class="card-body">
-                <h5 class="card-title">Summer Camp</h5>
-                <p class="mb-1 text-muted">August 2024</p>
-                <p class="card-text">Four days of prayer, activities, and team challenges.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="card h-100">
-              <img loading="lazy" src="assets/images/fire-show-good-friday-1.jpg" class="card-img-top" alt="Fire show">
-              <div class="card-body">
-                <h5 class="card-title">Food Drive</h5>
-                <p class="mb-1 text-muted">December 2024</p>
-                <p class="card-text">Collected and distributed care packages to families in need.</p>
+          <div class="col-lg-6">
+            <div class="content-card warm h-100 shadow-sm">
+              <p class="eyebrow text-accent mb-2" data-i18n="events.partners.title">Host the troop</p>
+              <p class="mb-3" data-i18n="events.partners.body">Parishes, schools, and civic groups invite our patrols for safety workshops, music, and service learning. Share your idea and we’ll tailor a program.</p>
+              <div class="d-flex flex-wrap gap-2">
+                <a class="btn btn-gold" href="contact.html#support" data-i18n="events.cta">Partner or host an event</a>
+                <a class="btn btn-reset-ghost" href="join.html" data-i18n="home.cta.button">Join Us</a>
               </div>
             </div>
           </div>

@@ -94,109 +94,166 @@
 
   <main class="py-5">
     <div class="container">
-      <div class="row g-4 row-cols-1 row-cols-md-2 row-cols-xl-3 align-items-stretch">
-        <div class="col">
-          <div class="card unit-card h-100" data-unit="beavers">
-            <div class="d-flex align-items-center gap-3 mb-3">
-              <img loading="lazy" src="../assets/images/beavers-horse-activity.jpg" class="unit-figure" alt="Beavers activity">
-              <div>
-                <p class="unit-chip mb-2" data-i18n="units.beavers">Beavers</p>
-                <p class="unit-meta mb-1"><strong data-i18n="units.age">Age Range:</strong> 5–6 (placeholder)</p>
-                <p class="unit-meta mb-0"><strong data-i18n="units.activities">Activities:</strong> discovery games, crafts, nature walks.</p>
+      <section class="unit-tabs" data-unit-tabs>
+        <div class="unit-tab-buttons">
+          <button class="unit-tab-button is-active" data-unit-tab="beavers" data-i18n="units.beavers">Beavers</button>
+          <button class="unit-tab-button" data-unit-tab="cubs" data-i18n="units.cubs">Cubs</button>
+          <button class="unit-tab-button" data-unit-tab="scouts" data-i18n="units.scouts">Scouts</button>
+          <button class="unit-tab-button" data-unit-tab="guides" data-i18n="units.guides">Guides</button>
+          <button class="unit-tab-button" data-unit-tab="rovers" data-i18n="units.rovers">Rovers</button>
+          <button class="unit-tab-button" data-unit-tab="band" data-i18n="home.units.band.title">Band</button>
+        </div>
+        <div class="unit-tab-panels">
+          <article class="unit-tab-panel is-active" data-unit-panel="beavers">
+            <div class="row g-4 align-items-center">
+              <div class="col-md-5">
+                <img loading="lazy" src="../assets/images/beavers-horse-activity.jpg" alt="Beavers storytelling circle">
+              </div>
+              <div class="col-md-7">
+                <div class="unit-panel-meta">
+                  <span data-i18n="units.detail.beavers.age">Ages 5–6</span>
+                  <span data-i18n="units.detail.beavers.focus">Wonder & welcome</span>
+                </div>
+                <p class="mb-3" data-i18n="units.detail.beavers.body">Faith-themed playtimes introduce the troop promise through songs, crafts, and games with parents nearby.</p>
+                <ul class="unit-panel-list mb-3">
+                  <li data-i18n="units.detail.beavers.point1">Gentle prayer moments with simple motions.</li>
+                  <li data-i18n="units.detail.beavers.point2">Nature walks to learn colors, seasons, and care.</li>
+                  <li data-i18n="units.detail.beavers.point3">Monthly family gatherings and badge celebrations.</li>
+                </ul>
+                <div class="d-flex flex-wrap gap-2">
+                  <a href="join.html" class="btn btn-gold" data-i18n="units.join">Join</a>
+                  <a href="contact.html" class="btn btn-outline-primary" data-i18n="nav.contact">Contact</a>
+                </div>
               </div>
             </div>
-            <p class="mb-3" data-i18n="home.units.beavers.text">Our youngest section building curiosity, teamwork, and care through play.</p>
-            <div class="unit-actions">
-              <a href="join.html" class="btn btn-gold" data-i18n="units.join">Join</a>
-              <a href="contact.html" class="btn btn-outline-primary" data-i18n="nav.contact">Contact</a>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card unit-card h-100" data-unit="cubs">
-            <div class="d-flex align-items-center gap-3 mb-3">
-              <img loading="lazy" src="../assets/images/cubs-home-cinema-activity-2.jpg" class="unit-figure" alt="Cubs activity">
-              <div>
-                <p class="unit-chip mb-2" data-i18n="units.cubs">Cubs</p>
-                <p class="unit-meta mb-1"><strong data-i18n="units.age">Age Range:</strong> 7–10 (placeholder)</p>
-                <p class="unit-meta mb-0"><strong data-i18n="units.activities">Activities:</strong> weekly meetings, games, crafts, simple service.</p>
+          </article>
+          <article class="unit-tab-panel" data-unit-panel="cubs">
+            <div class="row g-4 align-items-center">
+              <div class="col-md-5">
+                <img loading="lazy" src="../assets/images/cubs-home-cinema-activity-2.jpg" alt="Cubs movie night">
+              </div>
+              <div class="col-md-7">
+                <div class="unit-panel-meta">
+                  <span data-i18n="units.detail.cubs.age">Ages 7–10</span>
+                  <span data-i18n="units.detail.cubs.focus">Teamwork & imagination</span>
+                </div>
+                <p class="mb-3" data-i18n="units.detail.cubs.body">Cubs discover stories of saints, survival basics, and community service through quests and themed meetings.</p>
+                <ul class="unit-panel-list mb-3">
+                  <li data-i18n="units.detail.cubs.point1">Sixers lead prayer corners and pledges.</li>
+                  <li data-i18n="units.detail.cubs.point2">STEM crafts and pioneering mini-builds.</li>
+                  <li data-i18n="units.detail.cubs.point3">Visits to elders, hospitals, and partner troops.</li>
+                </ul>
+                <div class="d-flex flex-wrap gap-2">
+                  <a href="join.html" class="btn btn-gold" data-i18n="units.join">Join</a>
+                  <a href="contact.html" class="btn btn-outline-primary" data-i18n="nav.contact">Contact</a>
+                </div>
               </div>
             </div>
-            <p class="mb-3" data-i18n="home.units.cubs.text">Youngest adventurers learning teamwork and faith through games and discovery.</p>
-            <div class="unit-actions">
-              <a href="join.html" class="btn btn-gold" data-i18n="units.join">Join</a>
-              <a href="contact.html" class="btn btn-outline-primary" data-i18n="nav.contact">Contact</a>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card unit-card h-100" data-unit="scouts">
-            <div class="d-flex align-items-center gap-3 mb-3">
-              <img loading="lazy" src="../assets/images/scouts-learning-hiking-gear.jpg" class="unit-figure" alt="Scouts hiking gear lesson">
-              <div>
-                <p class="unit-chip mb-2" data-i18n="units.scouts">Scouts</p>
-                <p class="unit-meta mb-1"><strong data-i18n="units.age">Age Range:</strong> 11–14 (placeholder)</p>
-                <p class="unit-meta mb-0"><strong data-i18n="units.activities">Activities:</strong> hikes, camping basics, skills, parish service.</p>
+          </article>
+          <article class="unit-tab-panel" data-unit-panel="scouts">
+            <div class="row g-4 align-items-center">
+              <div class="col-md-5">
+                <img loading="lazy" src="../assets/images/scouts-learning-hiking-gear.jpg" alt="Scouts learning hiking gear">
+              </div>
+              <div class="col-md-7">
+                <div class="unit-panel-meta">
+                  <span data-i18n="units.detail.scouts.age">Ages 11–14</span>
+                  <span data-i18n="units.detail.scouts.focus">Patrol leadership</span>
+                </div>
+                <p class="mb-3" data-i18n="units.detail.scouts.body">Patrols rotate through pioneering, first aid, and gospel service projects that culminate in weekend camps.</p>
+                <ul class="unit-panel-list mb-3">
+                  <li data-i18n="units.detail.scouts.point1">Quarterly camps with hiking and night prayers.</li>
+                  <li data-i18n="units.detail.scouts.point2">Service shifts at parish clinics and kitchens.</li>
+                  <li data-i18n="units.detail.scouts.point3">Merit-badge mentorship with Rovers.</li>
+                </ul>
+                <div class="d-flex flex-wrap gap-2">
+                  <a href="join.html" class="btn btn-gold" data-i18n="units.join">Join</a>
+                  <a href="contact.html" class="btn btn-outline-primary" data-i18n="nav.contact">Contact</a>
+                </div>
               </div>
             </div>
-            <p class="mb-3" data-i18n="home.units.scouts.text">Outdoor skills, service, and personal growth with strong friendships.</p>
-            <div class="unit-actions">
-              <a href="join.html" class="btn btn-gold" data-i18n="units.join">Join</a>
-              <a href="contact.html" class="btn btn-outline-primary" data-i18n="nav.contact">Contact</a>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card unit-card h-100" data-unit="guides">
-            <div class="d-flex align-items-center gap-3 mb-3">
-              <img loading="lazy" src="../assets/images/campfire-gathering-night.jpg" class="unit-figure" alt="Guides at campfire">
-              <div>
-                <p class="unit-chip mb-2" data-i18n="units.guides">Guides</p>
-                <p class="unit-meta mb-1"><strong data-i18n="units.age">Age Range:</strong> 11–14 (placeholder)</p>
-                <p class="unit-meta mb-0"><strong data-i18n="units.activities">Activities:</strong> teamwork, creativity, leadership, community projects.</p>
+          </article>
+          <article class="unit-tab-panel" data-unit-panel="guides">
+            <div class="row g-4 align-items-center">
+              <div class="col-md-5">
+                <img loading="lazy" src="../assets/images/campfire-gathering-night.jpg" alt="Guides campfire">
+              </div>
+              <div class="col-md-7">
+                <div class="unit-panel-meta">
+                  <span data-i18n="units.detail.guides.age">Ages 11–14</span>
+                  <span data-i18n="units.detail.guides.focus">Sisterhood & creativity</span>
+                </div>
+                <p class="mb-3" data-i18n="units.detail.guides.body">Guides blend liturgical arts, service visits, and outdoor exploration tailored to empower young women.</p>
+                <ul class="unit-panel-list mb-3">
+                  <li data-i18n="units.detail.guides.point1">Choir leadership and liturgical dance.</li>
+                  <li data-i18n="units.detail.guides.point2">Creative workshops with local artisans.</li>
+                  <li data-i18n="units.detail.guides.point3">Mentorship circles on spirituality and vocation.</li>
+                </ul>
+                <div class="d-flex flex-wrap gap-2">
+                  <a href="join.html" class="btn btn-gold" data-i18n="units.join">Join</a>
+                  <a href="contact.html" class="btn btn-outline-primary" data-i18n="nav.contact">Contact</a>
+                </div>
               </div>
             </div>
-            <p class="mb-3" data-i18n="home.units.guides.text">Sisterhood, leadership, creativity, and service to parish and city.</p>
-            <div class="unit-actions">
-              <a href="join.html" class="btn btn-gold" data-i18n="units.join">Join</a>
-              <a href="contact.html" class="btn btn-outline-primary" data-i18n="nav.contact">Contact</a>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card unit-card h-100" data-unit="rovers">
-            <div class="d-flex align-items-center gap-3 mb-3">
-              <img loading="lazy" src="../assets/images/rovers-rock-climbing-training-white-helmets.jpg" class="unit-figure" alt="Rovers climbing training">
-              <div>
-                <p class="unit-chip mb-2" data-i18n="units.rovers">Rovers</p>
-                <p class="unit-meta mb-1"><strong data-i18n="units.age">Age Range:</strong> 18+ (placeholder)</p>
-                <p class="unit-meta mb-0"><strong data-i18n="units.activities">Activities:</strong> leadership roles, social outreach, advanced camps.</p>
+          </article>
+          <article class="unit-tab-panel" data-unit-panel="rovers">
+            <div class="row g-4 align-items-center">
+              <div class="col-md-5">
+                <img loading="lazy" src="../assets/images/rovers-rock-climbing-training-white-helmets.jpg" alt="Rovers in training">
+              </div>
+              <div class="col-md-7">
+                <div class="unit-panel-meta">
+                  <span data-i18n="units.detail.rovers.age">18+ leadership</span>
+                  <span data-i18n="units.detail.rovers.focus">Mentorship & service</span>
+                </div>
+                <p class="mb-3" data-i18n="units.detail.rovers.body">Rovers drive relief operations, lead camps, and receive professional coaching to support careers and vocations.</p>
+                <ul class="unit-panel-list mb-3">
+                  <li data-i18n="units.detail.rovers.point1">Emergency response certifications.</li>
+                  <li data-i18n="units.detail.rovers.point2">Monthly outreach to seniors and refugees.</li>
+                  <li data-i18n="units.detail.rovers.point3">Coaching younger patrol leaders.</li>
+                </ul>
+                <div class="d-flex flex-wrap gap-2">
+                  <a href="join.html" class="btn btn-gold" data-i18n="units.join">Join</a>
+                  <a href="contact.html" class="btn btn-outline-primary" data-i18n="nav.contact">Contact</a>
+                </div>
               </div>
             </div>
-            <p class="mb-3" data-i18n="home.units.rovers.text">Young adults leading projects, mentorship, and impactful service.</p>
-            <div class="unit-actions">
-              <a href="join.html" class="btn btn-gold" data-i18n="units.join">Join</a>
-              <a href="contact.html" class="btn btn-outline-primary" data-i18n="nav.contact">Contact</a>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card unit-card h-100" data-unit="leaders">
-            <div class="d-flex align-items-center gap-3 mb-3">
-              <img loading="lazy" src="../assets/images/rovers-becoming-leaders-salute.jpg" class="unit-figure" alt="Leaders salute">
-              <div>
-                <p class="unit-chip mb-2" data-i18n="units.leaders">Leaders</p>
-                <p class="unit-meta mb-0"><strong data-i18n="units.activities">Activities:</strong> mentoring, planning, and supporting every unit.</p>
+          </article>
+          <article class="unit-tab-panel" data-unit-panel="band">
+            <div class="row g-4 align-items-center">
+              <div class="col-md-5">
+                <img loading="lazy" src="../assets/images/brass-band-easter-sunday.jpg" alt="Troop band">
+              </div>
+              <div class="col-md-7">
+                <div class="unit-panel-meta">
+                  <span data-i18n="units.detail.band.age">Ages 12+</span>
+                  <span data-i18n="units.detail.band.focus">Music & liturgy</span>
+                </div>
+                <p class="mb-3" data-i18n="units.detail.band.body">Youth learn brass, percussion, and chant to animate parish feasts, civic processions, and relief fundraisers.</p>
+                <ul class="unit-panel-list mb-3">
+                  <li data-i18n="units.detail.band.point1">Sectionals led by alumni musicians.</li>
+                  <li data-i18n="units.detail.band.point2">Weekly theory & ear-training labs.</li>
+                  <li data-i18n="units.detail.band.point3">Joint appearances with partner choirs.</li>
+                </ul>
+                <div class="d-flex flex-wrap gap-2">
+                  <a href="join.html" class="btn btn-gold" data-i18n="band.join.button">Apply to Join</a>
+                  <a href="contact.html#support" class="btn btn-outline-primary" data-i18n="home.cta.contact">Talk with a leader</a>
+                </div>
               </div>
             </div>
-            <p class="mb-3" data-i18n="units.leaders.text">Adult leaders and mentors guiding our youth with care and experience.</p>
-            <div class="unit-actions">
-              <a href="join.html" class="btn btn-gold" data-i18n="units.volunteer">Volunteer</a>
-              <a href="contact.html" class="btn btn-outline-primary" data-i18n="nav.contact">Contact</a>
-            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="mt-5">
+        <div class="content-card warm shadow-sm text-center">
+          <p class="mb-2" data-i18n="units.leaders.text">Adult leaders and mentors guiding our youth with care and experience.</p>
+          <div class="d-flex flex-wrap justify-content-center gap-2">
+            <a href="join.html" class="btn btn-gold" data-i18n="units.volunteer">Volunteer</a>
+            <a href="contact.html" class="btn btn-reset-ghost" data-i18n="nav.contact">Contact</a>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   </main>
 
