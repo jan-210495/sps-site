@@ -511,6 +511,14 @@
       en: 'Contact – St. Ephrem Patriarchal Syriac Scouts – Damascus',
       ar: 'اتصل بنا – فوج مار أفرام السرياني البطريركي – دمشق'
     },
+    login: {
+      en: 'Login – St. Ephrem Patriarchal Syriac Scouts – Damascus',
+      ar: 'تسجيل الدخول – فوج مار أفرام السرياني البطريركي – دمشق'
+    },
+    admin: {
+      en: 'Admin Dashboard – St. Ephrem Patriarchal Syriac Scouts – Damascus',
+      ar: 'لوحة التحكم – فوج مار أفرام السرياني البطريركي – دمشق'
+    },
     notfound: {
       en: 'Page Not Found – St. Ephrem Patriarchal Syriac Scouts – Damascus',
       ar: 'الصفحة غير موجودة – فوج مار أفرام السرياني البطريركي – دمشق'
