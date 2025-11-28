@@ -1,46 +1,47 @@
 # Backend Implementation Plan
 
-This document outlines the high-level roadmap for standing up the API and data services that the static site expects (forms, news, admin tools, media uploads).
+This roadmap folds in the current constraints (static site hosted via GitHub Pages/Cloudflare, MySQL artifacts stored inside the repo) and the future goal of a leaders’ webapp that supports ~400 authenticated members with unit-level filters, attendance, schedules, and HR oversight.
 
-## 1. Environment & Deployment Envelope
-- Containerize the Express app that lives under `server/src`, bake in the environment variables from `.env.example`, and decide whether it runs behind nginx on the same origin (preferred so `/api/*` calls work without extra CORS).
-- Add middleware for logging, compression, and trust-proxy handling so JWT cookies/headers survive Cloudflare → nginx → Express.
-- Define how the container is built and restarted alongside the existing rsync flow documented in `AGENTS.md`.
+## 1. Hosting & Deployment Envelope
+- Keep the public site on GitHub Pages (served at `sps.abboud.cloud` via Cloudflare) and avoid server-side rendering there; the static assets stay under version control.
+- Define a sibling deployment artifact (Docker image or container bundle) that runs the Express API separately on the homeserver or another runtime; Pages alone cannot host Node/MySQL so the container must live elsewhere even though its source/Dockerfiles reside in this repo.
+- Check in a `docker-compose.yml` (or similar) that provisions both the API container and a MySQL service seeded from SQL dumps kept in `server/db/seed/*.sql`; this satisfies the “database present in GitHub” requirement because schema/data definitions live here even if the running instance spins up from them during deploys.
+- Harden the Express bootstrap: enable logging, compression, rate limiting, and trust-proxy settings so it works when proxied through Cloudflare/nginx.
 
-## 2. Database Schema & Migration Strategy
-- Translate the implicit needs into tables: `users` (for `/api/auth/login`), `news`, `featured_media`, `contact_messages`, `join_applications`, and `media_assets`.
-- Each content table should have bilingual columns (`title_ar`, `title_en`, etc.) so both locale versions of the site can pull from one record set.
-- Capture migration steps (SQL files or a lightweight tool) so schema changes can be replayed and reviewed.
+## 2. Data Architecture & Extensibility
+- Define the baseline tables now (`users`, `roles`, `news`, `featured_media`, `contact_messages`, `join_applications`, `media_assets`) plus the scaffolding for the upcoming leaders’ platform: `units`, `unit_members`, `members`, `attendance_records`, `meetings`, `missions`, `achievements`, `schedules`, `hr_notes`.
+- Every content-heavy table should support bilingual fields (`title_ar`/`title_en`, `summary_ar`/`summary_en`, etc.) so the same record powers both locales.
+- Store schema migrations and seed data in the repo; add scripts that rebuild the MySQL container locally/from CI so contributors can reproduce the data model without external DB hosting.
 
-## 3. Authentication & Authorization Flow
-- Complete `/api/auth/login` with password hashing, lockout/rate limiting, and refreshable JWTs (short-lived access token, optional refresh cookie).
-- Expose supporting endpoints such as `/api/auth/profile` and `/api/auth/logout` so the front-end helpers in `assets/js/auth.js` can verify state after reloads.
-- Respect the role model assumed by the UI (`admin`, `media-admin`, `leaders`) and enforce it server-side via the middleware in `server/src/middleware/auth.js`.
+## 3. Authentication, Authorization, and Accounts
+- Expand the auth module to manage ~400 users: hashed passwords, optional MFA later, refresh tokens, and password-reset workflows.
+- Model granular roles: `admin`, `media-admin`, `leaders`, `unit-leader`, `hr`, and potentially `member` for self-service dashboards. Enforce them via middleware (`server/src/middleware/auth.js`) and surface them in the UI (e.g., badge in `admin.html`).
+- Provide CRUD endpoints for managing member accounts, unit assignments, and permissions so future leaders’ features can be configured in-app.
 
-## 4. News & Featured Content APIs
-- Replace the hard-coded cards on `news.html` with API-driven data: create public endpoints like `GET /api/news?lang=ar` and `GET /api/news/:id`.
-- Extend `/api/media/news` so admins can list/create/update/delete news entries with localized titles, summaries, and optional hero images.
-- Implement CRUD for featured slots (hero, gallery) so the dashboard section in `admin.html` can read/write the same records.
+## 4. Public-Facing APIs & Form Services
+- Replace Formspree by building `/api/forms/contact` and `/api/forms/join`; update the HTML to point at these routes once the endpoints exist. Persist submissions, run spam checks (honeypot + timestamp + server-side throttling), and notify leaders via email/webhook.
+- Expose read-only endpoints for news, featured imagery, gallery metadata, and (eventually) public unit schedules. Pages like `news.html` can fetch data client-side until a more advanced CMS layer is needed.
 
-## 5. Form Submission Services
-- Introduce `/api/forms/contact` and `/api/forms/join` controllers; update `contact.html` and `join.html` to point their `data-endpoint` attributes at these routes.
-- Validate payloads (honeypot + timestamp + server-side checks), persist them to `contact_messages`/`join_applications`, and trigger downstream notifications (email relay, WhatsApp, etc.).
-- Provide a simple admin listing endpoint for authorized roles to review submissions.
+## 5. Leader Webapp Roadmap
+- Plan a progressive enhancement strategy: start with an authenticated dashboard embedded in `admin.html`, then branch into dedicated views for unit leaders, HR, and members.
+- Core features to design for now (even if data is placeholder): member directory filtered by unit, attendance capture per meeting, schedule builder per unit, mission tracking, achievements log, and HR reports covering attendance across the troop.
+- Keep the API contracts flexible—e.g., allow filtering by `unit_id`, date ranges, or `member_id`—so future modules (carnival attendance, mission approvals, etc.) can plug in without schema rewrites.
 
-## 6. Media & Gallery Management
-- Expand the upload endpoint in `server/src/routes/media.js` so uploaded files are validated, resized (e.g., with `sharp`), stored under versioned paths, and recorded in the `media_assets` table.
-- Expose `GET /api/media/gallery` so the gallery filters on the public site can consume curated metadata rather than scanning `assets/images` at runtime.
-- Consider a background job or admin view for deleting/archiving media to keep storage under control.
+## 6. Media & Asset Management
+- Enhance `/api/media` so uploads are validated, optionally resized (via `sharp`), and recorded in `media_assets` with ownership metadata; include endpoints for listing/deleting assets.
+- Publish a `GET /api/media/gallery` endpoint that returns curated items grouped by category, feeding the gallery filter UI instead of scanning the filesystem.
+- Version uploaded files or store them under `/uploads/<version>` so cache-busting remains consistent with the static site.
 
 ## 7. Internationalization & Content Serving
-- For every textual entity (news, featured captions, form responses), store both Arabic and English fields; APIs should pick the correct language based on a `lang` query parameter that mirrors the logic in `assets/js/main.js`.
-- Future-proof static pages by defining structured blocks (e.g., mission bullets, leadership bios) that can eventually be served from the same backend.
+- Ensure every textual API supports a `lang` parameter and falls back gracefully, matching the front-end toggles in `assets/js/main.js`.
+- When designing leader-facing modules, plan for bilingual labels/notes so HR reports can flip between Arabic and English without data duplication.
 
-## 8. Security, Observability, and Ops
-- Add rate limiting, structured error responses, centralized logging, and `/api/health`/`/api/metrics` probes so ops can monitor the service.
-- Ensure uploads are authenticated, JWT secrets are rotated, and HTTPS termination + CORS headers match the Cloudflare/nginx setup.
+## 8. Security, Observability, and Compliance
+- Implement rate limiting, audit logging, structured error responses, and `/api/health` & `/api/metrics` endpoints so the service can be monitored.
+- Lock down file uploads, rotate JWT secrets, and document backup/restore procedures for the MySQL dumps committed to the repo.
+- Because the future system will store personal data, plan for access logs and permission reviews, even if policy details arrive later.
 
-## 9. Cutover & Continuous Delivery
-- Update cache-busted asset references once the front-end points to the new API endpoints; keep a feature flag to fall back to Formspree until the new forms are validated.
-- Document the deploy procedure for both the static site (rsync + nginx reload) and the API container (build/push/restart).
-- Plan staged rollout: enable form endpoints first, then news/featured APIs, and finally flip the admin dashboard to live data after validation.
+## 9. Cutover, CI/CD, and Future Growth
+- Use GitHub Actions (or another CI runner) to lint/test the server code, build container images, and publish updated SQL dumps whenever migrations change.
+- Document how the homeserver (or another runtime) pulls the repo, rebuilds the Docker stack (API + MySQL), and proxies `/api/*` behind Cloudflare so the static Pages site can call it securely.
+- Stage the rollout: (1) implement local form endpoints, (2) back news/featured areas with real APIs, (3) light up the media admin workflow, (4) start seeding member/unit data, and finally (5) build the leader dashboards once schema + roles are stable. Leave deliberate room for new HR requirements (missions, carnival tracking, etc.) by keeping APIs versioned and modular.
